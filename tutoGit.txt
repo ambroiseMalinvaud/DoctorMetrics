@@ -1,0 +1,27 @@
+Tutoriel Git / GitHub
+
+1. Avoir téléchargé et installé Git.
+
+2. Ouvrir le terminal de commandes.
+
+3. Décliner son identité en entrant les commandes :
+	git config --global user.name "Prenom Nom"
+Puis :
+	git config --global user.email "mail@exemple.com"
+
+4. Se créer un compte GitHub avec l'adresse mail que vous avez renseignée à Git.
+
+5. Me dire avec quelle adresse mail vous vous êtes inscrit pour que que je vous ajoute aux collaborateurs.
+
+6. Créer un dépôt local :
+- Créer un dossier vide "Doctor Metrics" dans votre dossier C://utilisateurs/votreNom/
+- Taper la commande pour rentrer dans ce répertoire :
+	cd DoctorMetrics/
+- Puis pour initialiser git dans ce répertoire :
+	git init
+
+7. Une fois que c'est fait rentrer cette commande dans le terminal :
+	git remote add https://github.com/ambroiseMalinvaud/DoctorMetrics.git
+Puis :
+	git pull origin master
+8. Normalement les fichiers que j'ai mis sur le git devrait apparaître dans le dossier Doctor Metrics que vous avez créé.
