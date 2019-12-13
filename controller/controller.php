@@ -138,7 +138,7 @@ function accueilAdmin() {
 		require('view/viewAccueilAdmin.php');
 
 	} else {
-		logout();
+		accueil();
 	}
 }
 
@@ -150,7 +150,7 @@ function statistiquesAdmin() {
 		require('view/viewStatistiquesAdmin.php');
 
 	} else {
-		logout();
+		accueil();
 	}
 }
 
@@ -193,7 +193,7 @@ function gestionUtilisateurs() {
 			require('view/viewGestionUtilisateurs.php');
 		}
 	} else {
-		logout();
+		accueil();
 	}
 }
 
@@ -205,7 +205,7 @@ function gestionTests() {
 		require('view/viewGestionTests.php');
 
 	} else {
-		logout();
+		accueil();
 	}
 }
 
@@ -217,7 +217,7 @@ function formulaireAdmin() {
 		require('view/viewFormulaireAdmin.php');
 
 	} else {
-		logout();
+		accueil();
 	}
 }
 

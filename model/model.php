@@ -1,7 +1,5 @@
 <?php
 
-// Essai de modification
-
 function dbConnect() {
 	try
 	{
