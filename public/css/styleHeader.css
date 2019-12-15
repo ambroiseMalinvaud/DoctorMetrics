@@ -1,0 +1,71 @@
+header { 
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	background-color: #507C89;
+}
+
+#logo {
+	float: left;
+	height : 60px;
+	width: auto;
+	margin: 15%;
+}
+
+nav {
+	display:flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-direction: column;
+	min-width: 80%;
+	font-size: 1.3em;
+}
+
+nav ul {
+	display: flex;
+}
+
+nav ul li {
+	margin: 10px;
+	list-style-type: none;
+}
+
+nav ul li a { 
+	color: white;
+	text-decoration: none;
+}
+
+nav ul li a:hover { 
+	color: #B4D6DF;
+	text-decoration: none;
+}
+
+#active { 
+	color: #B4D6DF;
+	text-decoration: none;
+}
+
+header button { 
+	align-self: flex-end;
+	font-size: 1em;
+	font-family: 'Bahnschrift Regular';
+	color:#507C89;
+	border: solid;
+	background-color: white;
+	height: 40px;
+	width: 150px;
+	border-radius: 10px;
+	margin-bottom: 8px;
+	margin-left: 10px;
+}
+
+button a { 
+	color: #507C89;
+	text-decoration: none;
+}
+
+button a:hover { 
+	color: #B4D6DF;
+	text-decoration: none;
+}

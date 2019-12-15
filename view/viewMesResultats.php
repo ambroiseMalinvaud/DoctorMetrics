@@ -4,7 +4,9 @@
 <head>
 	<meta charset="utf-8"> 
 	<title>Doctor Metrics</title>
-	<link rel="stylesheet" href="public/css/styleMesResultats.css"> 
+	<link rel="stylesheet" href="public/css/styleMesResultats.css">
+  <link rel="stylesheet" href="public/css/styleHeader.css">
+  <link rel="stylesheet" href="public/css/styleFooter.css">
 </head>
 	
 <body>

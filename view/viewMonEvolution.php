@@ -4,7 +4,9 @@
 <head>
 	<meta charset="utf-8"> 
 	<title>Doctor Metrics</title>
-	<link rel="stylesheet" href="public/css/styleMonEvolution.css"> <!-- Pour chaque page du site est associé une page CSS -->
+	<link rel="stylesheet" href="public/css/styleMonEvolution.css">
+	<link rel="stylesheet" href="public/css/styleHeader.css">
+  	<link rel="stylesheet" href="public/css/styleFooter.css">
 </head>
 	
 <body>

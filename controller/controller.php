@@ -119,14 +119,8 @@ function monProfilModifier() {
 		$message = 'Votre numéro de téléphone a bien été changé.';
 		echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
 
-	} else{
-
-		$mail = $data['mail'];
-		$tel = $data['tel'];
-
-		require('view/viewMonProfilModifier.php');
-	}
-
+	} 
+	
 	require('view/viewMonProfil.php');
 }
 

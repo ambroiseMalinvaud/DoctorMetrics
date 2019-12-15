@@ -3,7 +3,9 @@
 <head>
 	<meta charset="utf-8"> 
 	<title>Doctor Metrics</title>
-	<link rel="stylesheet" href="public/css/styleAide.css"> <!-- Pour chaque page du site est associé une page CSS -->
+	<link rel="stylesheet" href="public/css/styleAide.css">
+	<link rel="stylesheet" href="public/css/styleHeader.css">
+	<link rel="stylesheet" href="public/css/styleFooter.css">
 </head>
 
 
@@ -12,16 +14,19 @@
 <?php require('header.html'); ?>
 
 <div id="corps">
-	<h1>Besoin d'aide ?</h1>
-		<div id="index">
+
+<h1>Besoin d'aide ?</h1>
+	<div id="index">
 		<div class = "index_colonne"><a href="#connexion">Comment se connecter/déconnecter ?</a>
-		<a href="#modification_profil">Comment modifier son profil ?</a>
-		<a href="#mot_de_passe_oublié">Mot de passe oublié ?</a>
-		<a href="#boitier">Comment fonctionne le boitier Doctor Metrics ?</a></div>
+			<a href="#modification_profil">Comment modifier son profil ?</a>
+			<a href="#mot_de_passe_oublié">Mot de passe oublié ?</a>
+			<a href="#boitier">Comment fonctionne le boitier Doctor Metrics ?</a>
+		</div>
 		<div class = "index_colonne"><a href="#accès_résultats">Comment accéder à ses résultats ?</a>
-		<a href="#CGU">Conditions générales d'utilisations</a>
-		<a href="#contacter_admin">Contacter un administrateur</a>
-		<a href="#test">Comment savoir quand je dois passer un test ?</a></div>
+			<a href="#CGU">Conditions générales d'utilisations</a>
+			<a href="#contacter_admin">Contacter un administrateur</a>
+			<a href="#test">Comment savoir quand je dois passer un test ?</a>
+		</div>
 
 </div>
 	<div id= "texte1">

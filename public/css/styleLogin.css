@@ -1,19 +1,17 @@
-@font-face { /* Import de la typographie Bahnschrift (veillez à ce qu'elle soit dans le dossier du site) */
+@font-face { 
 font-family: 'Bahnschrift Regular';
 font-style: normal;
 font-weight: normal;
 src: local('Bahnschrift Regular'), url('../Polices/BAHNSCHRIFT 1.woff') format('woff');
 }
 
-html, body { /* Marges des éléments du site remises à zéro */
+html, body { 
 	margin: 0px;
 	padding: 0px;
 }
 
-
-
 body {
-	background-color: Lightblue;
+	background-color: lightblue;
 	font-family: 'Bahnschrift Regular';
 }
 
@@ -27,37 +25,8 @@ header {
 }
 
 #logo {
-	float: left;
 	height : 100px;
 	min-width: 10%;
-}
-
-nav { /* Mise en page du menu */
-	display:flex;
-	justify-content: flex-start;
-	align-items: flex-start;
-	flex-direction: column;
-	min-width: 80%;
-	font-size: 1.3em;
-}
-
-nav ul {
-	display: flex;
-}
-
-nav ul li {
-	margin: 10px;
-	list-style-type: none;
-}
-
-nav ul li a { /* Mise en page des liens */
-	color: white;
-	text-decoration: none;
-}
-
-nav ul li a:hover { /* Mise en page d'un élément du menu en cas de survol de la souris */
-	color: #B4D6DF;
-	text-decoration: none;
 }
 
 #testest {
