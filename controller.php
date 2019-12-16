@@ -89,7 +89,9 @@ function monProfilModifier() {
 		$tel = $_POST['tel'];
 
 		updateTelMail($_SESSION['rpps'], $tel, $mail);
+		
 		$data = getUserData($_SESSION['rpps']);
+		
 		require('view/viewMonProfil.php');
 
 		$message='Votre adresse mail et votre numéro de téléphone ont bien été changés.';
@@ -101,7 +103,9 @@ function monProfilModifier() {
 		$tel = $data['tel'];
 
 		updateMail($_SESSION['rpps'], $mail);
+		
 		$data = getUserData($_SESSION['rpps']);
+		
 		require('view/viewMonProfil.php');
 
 		$message='Votre adresse mail a bien été changée.';
@@ -113,7 +117,9 @@ function monProfilModifier() {
 		$mail = $data['mail'];
 
 		updateTel($_SESSION['rpps'], $tel);
+		
 		$data = getUserData($_SESSION['rpps']);
+		
 		require('view/viewMonProfil.php');
 
 		$message = 'Votre numéro de téléphone a bien été changé.';
