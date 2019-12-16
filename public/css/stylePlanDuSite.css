@@ -20,7 +20,9 @@ body {
 	min-height: 100%;
 }
 
-
+#corps h1 {
+	text-align: center;
+}
 
 @media all and (max-width: 850px) {
 	

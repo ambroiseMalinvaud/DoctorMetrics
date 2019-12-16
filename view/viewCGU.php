@@ -14,7 +14,7 @@
 
 
 <div id="corps">
-	<p><strong>CONDITIONS GENERALES D'UTILISATION</strong></p>
+	<h1>CONDITIONS GÉNÉRALES D'UTILISATION</h1>
 	<p id="cgu">
 	Article 1 : Objet
 	<br>
