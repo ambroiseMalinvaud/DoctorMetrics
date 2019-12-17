@@ -14,40 +14,24 @@
 <?php require('view/headerAdmin.html'); ?>
 
 <div id="corps">
+	<div id="corps">
 	<div id="userList">
 		<h3>Liste des utilisateurs : </h3>
 		<table>
   		 <tr>
       		 <th>Nom</th>
       		 <th>Prénom</th>
-      		 <th>Poste</th>
+      		 <th>RPPS</th>
    		</tr>
-  		<tr>
-    		 <td>PERBET</td>
-    		 <td>Alexandre</td>
-    		 <td>Chirurgien</td>
-  		</tr>
-		<tr>
-    		 <td>MALINVAUD</td>
-    		 <td>Ambroise</td>
-    		 <td>Docteur</td>
-  		</tr>
-		<tr>
-    		 <td>LALAU</td>
-    		 <td>Alexandre</td>
-    		 <td>Chirurgien</td>
-  		</tr>
-		<tr>
-    		 <td>OUARTI</td>
-    		 <td>Karim</td>
-    		 <td>Docteur</td>
-  		</tr>
-		<tr>
-    		 <td>DEBRAY-GENTY</td>
-    		 <td>Grégoire</td>
-    		 <td>Infirmier</td>
-  		</tr>
-  		 
+   			<?php 
+   			while($users = $req->fetch()) {
+   				echo '<tr>';
+  				echo '<td>' . $users['lastName'] . '</td>';
+  				echo '<td>' . $users['firstName'] . '</td>';
+  				echo '<td>' . $users['RPPS'] . '</td>';
+  				echo '</tr>';
+  			}
+  			?>
 		</table>
 	</div>
 	
@@ -112,4 +96,3 @@
 </body>
 	
 </html>
-

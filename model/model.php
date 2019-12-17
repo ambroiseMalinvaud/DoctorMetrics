@@ -25,6 +25,16 @@ function getUserData($a_rpps) {
 	return $data;
 }
 
+function getUsersData() {
+
+	$db = dbConnect();
+		
+	$req = $db->prepare("SELECT RPPS, lastName, firstName FROM users ORDER BY lastName");
+	$req->execute();
+		
+	return $req;
+}
+
 function connexion($a_rpps) {
 
 	$db = dbConnect();

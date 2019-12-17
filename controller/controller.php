@@ -89,7 +89,9 @@ function monProfilModifier() {
 		$tel = $_POST['tel'];
 
 		updateTelMail($_SESSION['rpps'], $tel, $mail);
+
 		$data = getUserData($_SESSION['rpps']);
+
 		require('view/viewMonProfil.php');
 
 		$message='Votre adresse mail et votre numéro de téléphone ont bien été changés.';
@@ -101,7 +103,9 @@ function monProfilModifier() {
 		$tel = $data['tel'];
 
 		updateMail($_SESSION['rpps'], $mail);
+
 		$data = getUserData($_SESSION['rpps']);
+
 		require('view/viewMonProfil.php');
 
 		$message='Votre adresse mail a bien été changée.';
@@ -113,7 +117,9 @@ function monProfilModifier() {
 		$mail = $data['mail'];
 
 		updateTel($_SESSION['rpps'], $tel);
+
 		$data = getUserData($_SESSION['rpps']);
+		
 		require('view/viewMonProfil.php');
 
 		$message = 'Votre numéro de téléphone a bien été changé.';
@@ -166,9 +172,13 @@ function gestionUtilisateurs() {
 	
 			if($rpps != null AND $tel != null AND $mail != null AND $nom != null AND $prenom != null AND $pass != null AND $adm != null) {
 
+				$req = getUsersData();
+
 				$pass_hache = sha1($pass);
 			
 				addUser($rpps, $tel, $mail, $nom, $prenom, $pass_hache, $adm);
+
+				$req = getUsersData();
 
 				require('view/viewGestionUtilisateurs.php');
 
@@ -177,6 +187,8 @@ function gestionUtilisateurs() {
 
 			} else {
 
+				$req = getUsersData();
+
 				require('view/viewGestionUtilisateurs.php');
 
 				$message = "Il y a eu un problème. Veuillez réessayer.";
@@ -184,6 +196,8 @@ function gestionUtilisateurs() {
 
 			}
 		} else {
+			$req = getUsersData();
+
 			require('view/viewGestionUtilisateurs.php');
 		}
 	} else {

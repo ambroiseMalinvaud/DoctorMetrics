@@ -23,8 +23,8 @@ body {
 #corps {
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
-	align-items: center;
+	justify-content: space-around;
+	align-items: space-around;
 	height: auto;
 	margin: 2%;
 	background-color: white;
@@ -33,6 +33,7 @@ body {
 #userList h3 {
 	font-size: 1.5em;
 	margin: 5%;
+	width: 100%;
 }
 
 #userList {
@@ -53,10 +54,6 @@ body {
 	border: 1px solid black;
 }
 
-td {
-	border: 1px solid black;
-}
-
 #addUser {
 	width: 50%;
 }
@@ -74,11 +71,13 @@ td {
 }
 
 #col1 {
-	width: 30%;
+	width: 100%;
+	margin: 5%;
 }
 
 #col2 {
-	width: 30%;
+	width: 100%;
+	margin: 5%;
 }
 
 #addUser input {
