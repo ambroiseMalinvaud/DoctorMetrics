@@ -1,4 +1,4 @@
-@font-face {
+@font-face { 
 font-family: 'Bahnschrift Regular';
 font-style: normal;
 font-weight: normal;
@@ -22,103 +22,32 @@ body {
 
 #corps {
 	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	align-items: space-around;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	height: auto;
 	margin: 2%;
 	background-color: white;
+	padding-bottom: 5%;
 }
-	
-#userList h3 {
-	align-self: center;
+
+#corps h1 {
+	margin: 3%;
+}
+
+#warning {
 	font-size: 1.5em;
-	margin: 5%;
-	width: 80%;
-}
-
-#userList {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	width: 50%;
-}
-
-#userList table {
-	align-self: center;
-	font-size: 1.4em;
-	width: 80%;
-	margin-bottom: 5%;
-	border : solid;
-	border-collapse: collapse;
-}
-
-#userList td th {
-	border: 1px solid black;
-}
-
-#userList th {
-	border: thin solid black;
 	text-align: center;
-}
-
-#userList td {
-	border: thin solid black;
-	text-align: center;
-}
-
-#deleteUser {
-	align-self: center;
-	background-color: grey;
-	border: none;
-	font-family: 'Bahnschrift Regular';
-	padding: 1%;
-	font-size: 1.3em;
-	border-radius: 5px;
-	width: 50%;
-	margin-bottom: 5%;
-}
-
-#deleteUser a {
-	text-decoration: none;
+	padding: 2%;
+	background-color: red;
 	color: white;
 }
 
-#deleteUser a:hover {
-	text-decoration: none;
-	color: black;
+#corps p {
+	font-size: 1.2em;
 }
 
-#addUser {
-	width: 50%;
-}
-
-#addUser h3 {
-	font-size: 1.5em;
-	margin-top: 5%;
-	margin-left: 5%;
-	margin-right: 5%;
-}
-
-#blocAdd {
-	display: flex;
-	flex-direction: row;
-	align-items: flex-start;
-	justify-content: center;
-	width: 80%;
-}
-
-#col1 {
-	width: 30%;
-	margin-right: 5%;
-}
-
-#col2 {
-	width: 30%;
-	margin-left: 5%;
-}
-
-#addUser input {
+input {
 	background-color: lightgray;
 	border: none;
 	font-family: 'Bahnschrift Regular';
@@ -126,8 +55,7 @@ body {
 	font-size: 1.1em;
 }
 
-#addUserFooter input {
-	padding: 2%;
+#bouton {
 	border-radius: 5px;
 }
 
@@ -177,7 +105,17 @@ body {
 		font-size: 0.7em;
 	}
 	
-	
+	#corps {
+		min-height: 100%;
+	}
+
+	#corps p {
+		font-size: 1em;
+	}	
+
+	#corps button {
+		font-size: 1em;
+	}	
 	
 	footer { 
 		width: 100%;

@@ -205,6 +205,30 @@ function gestionUtilisateurs() {
 	}
 }
 
+function deleteUser() {
+	$data = getUserData($_SESSION['rpps']);
+	
+	if($data['admin'] == 1) {
+
+		if (isset($_POST['rpps'])) {
+
+			$rpps = $_POST['rpps'];
+
+			$data = checkExist($rpps);
+
+			if ($data == 1) {
+				require('view/viewAccueilAdmin.php');
+			} else {
+				require('view/viewGestionTests.php');
+			}
+		} else {
+			require('view/viewDeleteUser.php');
+		}
+	} else {
+		accueil();
+	}
+}
+
 function gestionTests() {
 	$data = getUserData($_SESSION['rpps']);
 

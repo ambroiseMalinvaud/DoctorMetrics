@@ -36,6 +36,8 @@ if (isset($_GET['action'])) {
         statistiquesAdmin();
     } elseif ($_GET['action'] == 'gestionUtilisateurs'&& isset($_SESSION['rpps'])) {
         gestionUtilisateurs();
+    } elseif ($_GET['action'] == 'deleteUser'&& isset($_SESSION['rpps'])) {
+        deleteUser();
     } elseif ($_GET['action'] == 'gestionTests'&& isset($_SESSION['rpps'])) {
         gestionTests();
     } elseif ($_GET['action'] == 'formulaireAdmin'&& isset($_SESSION['rpps'])) {

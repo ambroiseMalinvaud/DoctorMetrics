@@ -25,6 +25,16 @@ function getUserData($a_rpps) {
 	return $data;
 }
 
+function checkExist($a_rpps) {
+	$db = dbConnect();
+		
+	$req = $db->prepare("SELECT RPPS  FROM users WHERE RPPS = :RPPS");
+	$req->execute(array(':RPPS'=>$a_rpps));
+	$data = $req->fetch(PDO::FETCH_ASSOC);
+		
+	return $data;
+}
+
 function getUsersData() {
 
 	$db = dbConnect();
@@ -52,7 +62,7 @@ function updateTelMail($a_rpps, $a_tel, $a_mail) {
 
 	$req = $db->prepare("UPDATE users SET mail = :MAIL, tel = :TEL WHERE RPPS = :RPPS");
 	$req->bindParam(':MAIL', $a_mail, PDO::PARAM_STR);
-	$req->bindParam(':TEL', $a_tel, PDO::PARAM_INT);
+	$req->bindParam(':TEL', $a_tel, PDO::PARAM_STR);
 	$req->bindParam(':RPPS', $a_rpps, PDO::PARAM_INT);
 	$req->execute();
 }
@@ -73,7 +83,7 @@ function updateTel($a_rpps, $a_tel) {
 
 	$req = $db->prepare("UPDATE users SET tel = :TEL WHERE RPPS = :RPPS");
 	$req->bindParam(':RPPS', $a_rpps, PDO::PARAM_INT);
-	$req->bindParam(':TEL', $a_tel, PDO::PARAM_INT);
+	$req->bindParam(':TEL', $a_tel, PDO::PARAM_STR);
 	$req-> execute();
 }
 

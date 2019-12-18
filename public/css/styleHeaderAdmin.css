@@ -60,12 +60,12 @@ header button {
 	margin-left: 10px;
 }
 
-button a { 
+header button a { 
 	color: #507C89;
 	text-decoration: none;
 }
 
-button a:hover { 
+header button a:hover { 
 	color: #B4D6DF;
 	text-decoration: none;
 }

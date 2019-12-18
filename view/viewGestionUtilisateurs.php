@@ -14,7 +14,6 @@
 <?php require('view/headerAdmin.html'); ?>
 
 <div id="corps">
-	<div id="corps">
 	<div id="userList">
 		<h3>Liste des utilisateurs : </h3>
 		<table>
@@ -33,10 +32,11 @@
   			}
   			?>
 		</table>
+		<button id="deleteUser"><a href="index.php?action=deleteUser">SUPPRIMER UN UTILISATEUR</a></button>
 	</div>
 	
 	<div id="addUser">
-		<h3>Ajouter un utilsateur :</h3>
+		<h3>Ajouter un utilisateur :</h3>
 		<div id="blocAdd">
 		<div id="col1">
 			<p><strong>Numéro RPPS</strong></p>

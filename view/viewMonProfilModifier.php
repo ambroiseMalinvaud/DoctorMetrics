@@ -24,7 +24,7 @@
 				<p><strong>Numéro de téléphone</strong><br/><?= $data['tel'];  ?></p>
 			
 				<p>
-				 <label for="tel">Nouveau numéro de téléphone</label> : <input type="number" name="tel" id="tel" placeholder="06XXXXXXXX" />
+				 <label for="tel">Nouveau numéro de téléphone</label> : <input type="text" name="tel" id="tel" placeholder="06XXXXXXXX" />
 				</p>
 			
 		<div id="profil">
