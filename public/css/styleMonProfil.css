@@ -35,13 +35,9 @@ body {
 	background-color: lightblue;
 }
 
-#infoUser h3 {
-	font-family: 'Bahnschrift Regular';
-	color: black;
-	margin-left: 50px;
-	margin-bottom: 50px;
-	margin-top: 50px;
-	font-size: 2em;
+#ficheprof {
+    display: flex;
+    flex-direction: row;
 }
 
 #infoUser {
@@ -54,18 +50,24 @@ body {
 #infoUser p {
 	color: black;
 	font-size: 1.3em;
-	margin-left: 150px;
 	margin-bottom: 20px;
 }
 
 #profil {
 	display: flex;
+    flex-direction: row;
+    justify-content: center;  
+}
+
+#texte {
+    margin-left: 10;
 }
 
 #photoProfil {
-	max-width: 200px;
-	min-width: 50px;
-	align-self: center;
+	max-width: 80px;
+	min-width: 20px;
+    margin-top: 10px;
+	margin-right: 10px;
 }
 
 #infoUserFooter {
@@ -161,7 +163,6 @@ body {
 	}
 	
 	#infoUser h3 {
-		margin-left: 10%;
 		margin-bottom: 10%;
 		margin-top: 10%;
 		font-size: 1.5em;
@@ -178,6 +179,8 @@ body {
 		width: auto;
 		max-width: 100px;
 		height: auto;
+        margin-left: 10%;
+		margin-bottom: 3%;
 	}
 
 	#infoUserFooter button {
