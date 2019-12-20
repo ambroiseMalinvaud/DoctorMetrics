@@ -28,9 +28,9 @@ function getUserData($a_rpps) {
 function checkExist($a_rpps) {
 	$db = dbConnect();
 		
-	$req = $db->prepare("SELECT RPPS  FROM users WHERE RPPS = :RPPS");
+	$req = $db->prepare("SELECT COUNT(*) FROM users WHERE RPPS = :RPPS");
 	$req->execute(array(':RPPS'=>$a_rpps));
-	$data = $req->fetch(PDO::FETCH_ASSOC);
+	$data = $req->fetch(); 
 		
 	return $data;
 }
@@ -109,4 +109,11 @@ function addUser($a_rpps, $a_tel, $a_mail, $a_nom, $a_prenom, $a_pass, $a_adm) {
 	$req->bindParam(':PASS', $a_pass, PDO::PARAM_STR);
 	$req->bindParam(':ADMIN', $a_adm, PDO::PARAM_STR);
 	$req->execute();
+}
+
+function delUser($a_rpps) {
+
+	$db = dbConnect();
+
+	
 }

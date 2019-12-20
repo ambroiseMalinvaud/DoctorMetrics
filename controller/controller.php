@@ -212,11 +212,18 @@ function deleteUser() {
 
 		if (isset($_POST['rpps'])) {
 
-			$rpps = $_POST['rpps'];
+			$data = checkExist($_POST['rpps']);
 
-			$data = checkExist($rpps);
+			if ($data[0] == 1) {
+				?><script>
+					var result = confirm("Voulez-vous vraiment supprimer cet utilisateur ?");
+					if (result == true) {
+						alert("Merci de votre visite");
+					} else {
+						alert("Merci de rester avec nous");
+					}
+				</script><?php
 
-			if ($data == 1) {
 				require('view/viewAccueilAdmin.php');
 			} else {
 				require('view/viewGestionTests.php');
