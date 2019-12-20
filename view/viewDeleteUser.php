@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="public/css/styleDeleteUser.css">
 	<link rel="stylesheet" href="public/css/styleHeaderAdmin.css">
   	<link rel="stylesheet" href="public/css/styleFooterAdmin.css">
+  	<script type="text/javascript" src="view/javascript.js"></script>
 </head>
 
 <body>
@@ -24,7 +25,7 @@
 				<label for="rpps"></label><input type="text" name="rpps" id="rpps" placeholder="12345678912" required/>
 			</p>
 	</div>
-		<input id="bouton" type="submit" value="Supprimer l'utilisateur">
+		<input id="bouton" type="submit" value="Supprimer l'utilisateur" onclick="return confirmDelete()">
 	</form>
 </div>
 </div>

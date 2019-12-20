@@ -215,18 +215,15 @@ function deleteUser() {
 			$data = checkExist($_POST['rpps']);
 
 			if ($data[0] == 1) {
-				?><script>
-					var result = confirm("Voulez-vous vraiment supprimer cet utilisateur ?");
-					if (result == true) {
-						alert("Merci de votre visite");
-					} else {
-						alert("Merci de rester avec nous");
-					}
-				</script><?php
+				
+				delUser($_POST['rpps']);
 
-				require('view/viewAccueilAdmin.php');
+				$data = getUserData($_SESSION['rpps']);
+
+				require('view/viewDeleteUser.php');
+
 			} else {
-				require('view/viewGestionTests.php');
+				require('view/viewDeleteUser.php');
 			}
 		} else {
 			require('view/viewDeleteUser.php');

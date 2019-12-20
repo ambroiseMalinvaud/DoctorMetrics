@@ -115,5 +115,7 @@ function delUser($a_rpps) {
 
 	$db = dbConnect();
 
-	
+	$req = $db->prepare("DELETE FROM users WHERE RPPS = :RPPS");
+	$req->execute(array(':RPPS'=>$a_rpps));
+	$data = $req->fetch();
 }
