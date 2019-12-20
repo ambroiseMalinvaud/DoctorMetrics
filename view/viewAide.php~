@@ -62,6 +62,7 @@
 </div>
 
 <?php require('footer.html'); ?>
+<?php echo randomPassword(8); ?>
 
 </body>
 </html> 
