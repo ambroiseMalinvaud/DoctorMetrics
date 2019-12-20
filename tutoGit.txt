@@ -26,4 +26,6 @@ Puis :
 	git pull origin master
 8. Normalement les fichiers que j'ai mis sur le git devrait apparaître dans le dossier Doctor Metrics que vous avez créé.
 
-perbet push sur linux
+perbet push sur 
+
+lalau push
