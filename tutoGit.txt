@@ -1,4 +1,4 @@
-Tutoriel Git / GitHub
+﻿Tutoriel Git / GitHub
 
 1. Avoir téléchargé et installé Git.
 
@@ -26,6 +26,6 @@ Puis :
 	git pull origin master
 8. Normalement les fichiers que j'ai mis sur le git devrait apparaître dans le dossier Doctor Metrics que vous avez créé.
 
-perbet push sur 
+test push autre ordi
 
 lalau push
