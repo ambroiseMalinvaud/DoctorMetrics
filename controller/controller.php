@@ -214,17 +214,27 @@ function deleteUser() {
 
 			$data = checkExist($_POST['rpps']);
 
-			if ($data[0] == 1) {
-				
-				delUser($_POST['rpps']);
+			if ($_POST['rpps'] == $_SESSION['rpps']) {
 
-				$data = getUserData($_SESSION['rpps']);
+				$message = "Vous ne pouvez pas supprimer votre propre compte.";
+				echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
 
 				require('view/viewDeleteUser.php');
 
 			} else {
-				require('view/viewDeleteUser.php');
-			}
+
+				if ($data[0] == 1) {
+				
+				delUser($_POST['rpps']);
+
+				$req = getUsersData();
+
+				require('view/viewGestionUtilisateurs.php');
+
+				} else {
+					require('view/viewDeleteUser.php');
+				}
+			} 
 		} else {
 			require('view/viewDeleteUser.php');
 		}

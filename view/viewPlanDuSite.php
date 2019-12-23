@@ -15,7 +15,7 @@
 
 
 <div id="corps">
-	<h1>PLAN DU SITE</h1>
+	<h1>Plan du site</h1>
 	<ul>
 			<li><a href="index.php?action=accueil">ACCUEIL</a></li>
 			<li><a href="index.php?action=passerUnTest">PASSER UN TEST</a></li>
@@ -23,6 +23,7 @@
 			<li><a href="index.php?action=monEvolution">MON ÉVOLUTION</a></li>
 			<li><a href="index.php?action=resultatsHopital">RÉSULTATS DE L'HÔPITAL</a></li>
 			<li><a href="index.php?action=aide">AIDE</a></li>
+			<li><a href="index.php?action=monProfil">MON PROFIL</a></li>
 	</ul>
 </div>
 </div>

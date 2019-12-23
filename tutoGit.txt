@@ -24,8 +24,11 @@ Puis :
 	git remote add https://github.com/ambroiseMalinvaud/DoctorMetrics.git
 Puis :
 	git pull origin master
+
 8. Normalement les fichiers que j'ai mis sur le git devrait apparaître dans le dossier Doctor Metrics que vous avez créé.
 
-test push autre ordi
-
-lalau push
+Uploader ses fichiers :
+	git status
+	git add .
+	git commit -m "Raison du commit"
+	git push origin master

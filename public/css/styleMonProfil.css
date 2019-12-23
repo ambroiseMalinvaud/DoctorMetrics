@@ -31,8 +31,9 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: auto;
 	background-color: lightblue;
+	height: auto;
+	min-height: 80%;
 }
 
 #ficheprof {
