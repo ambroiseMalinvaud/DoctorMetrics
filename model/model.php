@@ -18,11 +18,20 @@ function getUserData($a_rpps) {
 		
 	$db = dbConnect();
 		
-	$req = $db->prepare("SELECT RPPS, tel, mail, lastName, firstName, admin FROM users WHERE RPPS = :RPPS");
+	$req = $db->prepare("SELECT RPPS, tel, mail, lastName, firstName, admin, avatar FROM users WHERE RPPS = :RPPS");
 	$req->execute(array(':RPPS'=>$a_rpps));
 	$data = $req->fetch();
 		
 	return $data;
+}
+function setAvatar($a_rpps , $exte){
+                $db = dbConnect();
+                 $req = $db->prepare('UPDATE users SET avatar = :avatar WHERE RPPS = :RPPS');
+                 $req->execute(array(
+                     'avatar' => $a_rpps.".".$exte,
+                     'RPPS' => $a_rpps
+                 ));
+    
 }
 
 function checkExist($a_rpps) {

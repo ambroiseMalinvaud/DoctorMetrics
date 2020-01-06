@@ -1,3 +1,5 @@
+<html>
+
 <head>
 	<meta charset="utf-8"> 
 	<title>Doctor Metrics</title>
@@ -16,13 +18,16 @@
         <div id="ficheprof">
             <div id="profil">
                 <figure>
-                    <img id="photoProfil" src="public/Images/PhotoProfil.jpg" alt="Photo de profil">
-                </figure>                                                                                              
+                    <?php if(!empty($_SESSION['lalaufort'])) { ?>
+                    <img id="photoProfil" src="public/Images/membres/avatars/<?php echo $_SESSION['lalaufort']; ?>" width="150" alt="Photo de profil"/>
+                    <?php } ?>
+                </figure>                                              
             </div>
             <div id="texte">
                 <p><strong>Bonjour
                     <?= $data['firstName'].' '.$data['lastName'];?>
-                </strong></p>
+                </
+                    strong></p>
                 <p><strong>Numéro RPPS</strong><br/>
                     <?= $data['RPPS'];  ?></p>
                 <p><strong>Adresse mail</strong><br/>
@@ -33,7 +38,21 @@
         </div>
         <div id="infoUserFooter">
 			<button><strong><a href="index.php?action=monProfilModifier">Modifier</a></strong></button>
-			<button><strong><a href="index.php?action=logout">Se déconnecter</a></strong></button>
+			<button><strong><a id="quitter"href="index.php?action=logout" onclick="pop()">Se déconnecter</a></strong></button>
+            <script type="text/javascript">
+                function pop() {
+                    var quitter = document.getElementById("quitter");
+                    var result = confirm("Voulez-vous vraiment quitter cette page?");
+                    if (result == true) {
+                        alert("Merci de votre visite");
+                        quitter.href= "index.php?action=login";
+                    }
+                    else {
+                        alert("Merci de rester avec nous");
+                        quitter.href=""
+                    }
+                }
+            </script>
 		</div>
     </div>
 		<?php 
@@ -48,6 +67,5 @@
 	
 <?php require('view/footer.html'); ?>
 </body>
-	
 
-
+</html>

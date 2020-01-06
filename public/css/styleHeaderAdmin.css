@@ -36,6 +36,22 @@ nav ul li a {
 	text-decoration: none;
 }
 
+#customPopup 
+{
+     position: fixed;
+     display: none;
+     left: 50%;
+     top: 50%;
+     z-index: 2000;
+     padding: 20px;
+     width: 560px;
+     background-color: #EEEEEE;
+     font-size: 12px;
+     line-height: 16px;
+     color: #202020;
+     border : 3px outset #555555;
+}
+
 nav ul li a:hover { 
 	color: #B4D6DF;
 	text-decoration: none;
