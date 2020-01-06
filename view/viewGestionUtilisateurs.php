@@ -39,6 +39,7 @@
 		<h3>Ajouter un utilisateur :</h3>
 		<div id="blocAdd">
 		<div id="col1">
+
 			<p><strong>Numéro RPPS</strong></p>
 				<form method="post" action="index.php?action=gestionUtilisateurs">
 					<p>
@@ -56,12 +57,15 @@
 					<p>
 						<label for="tel"></label><input type="tel" name="tel" id="tel" placeholder="06XXXXXXXX" required/>
 					</p>
+                    
+                              
 				
 			<div id="addUserFooter">
 				<input type="submit" value="Ajouter l'utilisateur">
 			</div>
 		</div>
 		<div id="col2">
+
 			<p><strong>Prénom</strong></p>
 				
 					<p>
@@ -79,6 +83,7 @@
 					<p>
 						<label for="pass"></label><input type="text" name="pass" id="pass" placeholder="Mot de passe" required/>
 					</p>
+            <br/><br/><br/>
 					<p><strong>Administrateur?</strong></p>
 					<p>
 						<input type="radio" id="adminy" name="admin" value=1> oui 
