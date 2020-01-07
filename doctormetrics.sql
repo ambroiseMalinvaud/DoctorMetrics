@@ -70,7 +70,7 @@ CREATE TABLE `Settings` (
 --
 -- Structure de la table `users`
 --
-
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `RPPS` varchar(11) NOT NULL,
   `tel` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
