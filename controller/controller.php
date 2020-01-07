@@ -46,6 +46,7 @@ function accueil() {
 
 function monProfil() {
 	$data = getUserData($_SESSION['rpps']);
+    $_SESSION['lalaufort'] = $data['avatar'];
 
 	require('view/viewMonProfil.php');
 }
@@ -128,8 +129,41 @@ function monProfilModifier() {
 	} else {
 		require('view/viewMonProfilModifier.php');
 	}
+ if(isset($_FILES['avatar']) AND !empty($_FILES['avatar']['name'])) {
+     
+     $tailleMax = 2097152;
+     $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
+     
+     if($_FILES['avatar']['size'] <= $tailleMax) {
+         
+         $extensionUpload = strtolower(substr(strrchr($_FILES['avatar']['name'], '.'), 1));
+         
+         if(in_array($extensionUpload, $extensionsValides)) {
+             
+             $chemin = "public/Images/membres/avatars/".$_SESSION['rpps'].".".$extensionUpload;
+             $resultat = move_uploaded_file($_FILES['avatar']['tmp_name'], $chemin);
+             
+             if($resultat) {
+                 
+                 setAvatar($_SESSION['rpps'],$extensionUpload);
+                 require('view/viewMonProfil.php');
+                 
+             } else {
+                 
+                 $msg = "Erreur durant l'importation de votre photo de profil";
+             }
+             
+         } else {
+             
+             $msg = "Votre photo de profil doit être au format jpg, jpeg, gif ou png";
+         }
+     } else {
+         
+         $msg = "Votre photo de profil ne doit pas dépasser 2Mo";
+         
+   }
+ }
 }
-
 function accueilAdmin() {
 	$data = getUserData($_SESSION['rpps']);
 
