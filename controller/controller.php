@@ -153,6 +153,17 @@ function statistiquesAdmin() {
 		accueil();
 	}
 }
+function randomPassword($taille) {
+	$liste_caractere = 'azertyuiopqsdfghjklmwxcvbn123456789AZERTYUIOPQSDFGHJKLMWXCVBN&$#'; /*on crée une liste contenant les différents caractères
+	présent dans un mot de passe */
+	$mot_de_passe = '';
+	for ($i=0;$i<$taille;$i++) {
+		$position_caractere = random_int(0,strlen($liste_caractere)-1);
+		$mot_de_passe .= $liste_caractere[$position_caractere];
+		/* a chaque passage dans la boucle on ajoute un caractère pris aléatoirement dans la liste */
+	}
+	return $mot_de_passe;
+}
 
 function gestionUtilisateurs() {
 	
@@ -160,30 +171,42 @@ function gestionUtilisateurs() {
 
 	if($data['admin'] == 1) {
 
-		if ((isset($_POST['rpps'])) || (isset($_POST['pass'])) || (isset($_POST['email'])) || (isset($_POST['tel'])) || (isset($_POST['nom'])) || (isset($_POST['prenom'])) || isset($_POST['admin'])) {
+		if ((isset($_POST['rpps']))  || (isset($_POST['email'])) || (isset($_POST['tel'])) || (isset($_POST['nom'])) || (isset($_POST['prenom'])) || isset($_POST['admin'])) {
 
     		$rpps = $_POST['rpps'];
    			$tel = $_POST['tel'];
     		$mail= $_POST['email'];
     		$nom = $_POST['nom'];
     		$prenom = $_POST['prenom'];
-			$pass= $_POST['pass'];
+			$pass = randomPassword(8);
 			$adm = $_POST['admin'];
+			$message = "votre mot de passe est " ;
+			$message .= $pass;
 	
-			if($rpps != null AND $tel != null AND $mail != null AND $nom != null AND $prenom != null AND $pass != null AND $adm != null) {
+			if($rpps != null AND $tel != null AND $mail != null AND $nom != null AND $prenom != null AND $pass != null AND $adm != null AND mail($mail,"Votre compte doctor metrics a été créé",$message)) {
 
 				$req = getUsersData();
+				
+				
+				
+					require('view/viewGestionUtilisateurs.php');
+					$pass_hache = sha1($pass);
 
-				$pass_hache = sha1($pass);
 			
-				addUser($rpps, $tel, $mail, $nom, $prenom, $pass_hache, $adm);
+					addUser($rpps, $tel, $mail, $nom, $prenom, $pass_hache, $adm);
 
-				$req = getUsersData();
+					$req = getUsersData();
 
-				require('view/viewGestionUtilisateurs.php');
+					$message = "Le compte a bien été créé.";
+					echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
 
-				$message = "Le compte a bien été créé.";
-				echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+				
+				
+
+				
+				
+
+				
 
 			} else {
 
@@ -265,6 +288,7 @@ function formulaireAdmin() {
 	} else {
 		accueil();
 	}
+	
 }
 
 function envoiMail() {
@@ -278,7 +302,7 @@ function envoiMail() {
 	$nom = $data['lastName'];
 	$mail = $data['mail'];
 
-	$destinataire="ambroise.malinvaud@gmail"; 
+	$destinataire="ambroise.malinvaud@gmail.com"; 
 
 	$headers = "MIME-Version: 1.0\r\n"; 
 

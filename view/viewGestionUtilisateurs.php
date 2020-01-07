@@ -74,11 +74,7 @@
 						<label for="nom"></label><input type="text" name="nom" id="nom" placeholder="Nom" required/>
 					</p>
 				
-			<p><strong>Mot de passe</strong></p>
-				
-					<p>
-						<label for="pass"></label><input type="text" name="pass" id="pass" placeholder="Mot de passe" required/>
-					</p>
+			
 					<p><strong>Administrateur?</strong></p>
 					<p>
 						<input type="radio" id="adminy" name="admin" value=1> oui 
