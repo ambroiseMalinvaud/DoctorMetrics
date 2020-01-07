@@ -1,0 +1,21 @@
+placer ce dossier sendmail a la racine de wamp
+
+dans c:\wamp64\bin\apache\apache2.4.39\bin\php.ini
+modifier le fichier a mailfunction (ligne 1050) de cette maniere 
+
+[mail function]
+; For Win32 only.
+; http://php.net/smtp
+SMTP = smtp.gmail.com
+; http://php.net/smtp-port
+smtp_port = 587
+
+; For Win32 only.
+; http://php.net/sendmail-from
+sendmail_from ="admin@wampserver.invalid"
+
+; For Unix only.  You may supply arguments as well (default: "sendmail -t -i").
+; http://php.net/sendmail-path
+sendmail_path =C:\wamp64\sendmail\sendmail.exe
+
+voila bisous <3
