@@ -25,12 +25,13 @@ function getUserData($a_rpps) {
 	return $data;
 }
 function setAvatar($a_rpps , $exte){
-                $db = dbConnect();
-                 $req = $db->prepare('UPDATE users SET avatar = :avatar WHERE RPPS = :RPPS');
-                 $req->execute(array(
-                     'avatar' => $a_rpps.".".$exte,
-                     'RPPS' => $a_rpps
-                 ));
+
+    $db = dbConnect();
+
+	$req = $db->prepare('UPDATE users SET avatar = :avatar WHERE RPPS = :RPPS');
+	$req->execute(array(
+        'avatar' => $a_rpps.".".$exte,
+        'RPPS' => $a_rpps ));
     
 }
 

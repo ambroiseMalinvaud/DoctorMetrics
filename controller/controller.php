@@ -82,6 +82,7 @@ function planDuSite() {
 }
 
 function monProfilModifier() {
+	
 	$data = getUserData($_SESSION['rpps']);
 
 	if ((isset($_POST['email'])) && (isset($_POST['tel'])) && $_POST['email'] != null && $_POST['tel'] != null){
@@ -93,9 +94,9 @@ function monProfilModifier() {
 
 		$data = getUserData($_SESSION['rpps']);
 
-		require('view/viewMonProfil.php');
+		header('Location:http://localhost/DoctorMetrics/index.php?action=monProfil');
 
-		$message='Votre adresse mail et votre numéro de téléphone ont bien été changés.';
+		$message = 'Votre adresse mail et votre numéro de téléphone ont bien été changés.';
 		echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
 
 	} elseif((isset($_POST['email'])) && $_POST['email'] != null){
@@ -107,9 +108,9 @@ function monProfilModifier() {
 
 		$data = getUserData($_SESSION['rpps']);
 
-		require('view/viewMonProfil.php');
+		header('Location:http://localhost/DoctorMetrics/index.php?action=monProfil');
 
-		$message='Votre adresse mail a bien été changée.';
+		$message = 'Votre adresse mail a bien été changée.';
 		echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
 
 	} elseif((isset($_POST['tel']))&&$_POST['tel']!= null){
@@ -121,49 +122,68 @@ function monProfilModifier() {
 
 		$data = getUserData($_SESSION['rpps']);
 		
-		require('view/viewMonProfil.php');
+		header('Location:http://localhost/DoctorMetrics/index.php?action=monProfil');
 
 		$message = 'Votre numéro de téléphone a bien été changé.';
 		echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
 
-	} else {
+	} if(isset($_FILES['avatar'])) {
+     	
+     	$tailleMax = 2097152;
+     	$extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
+     
+     	if($_FILES['avatar']['size'] <= $tailleMax) {
+         
+        	$extensionUpload = strtolower(substr(strrchr($_FILES['avatar']['name'], '.'), 1));
+         
+        	if(in_array($extensionUpload, $extensionsValides)) {
+             
+            	$chemin = "public/Images/membres/avatars/".$_SESSION['rpps'].".".$extensionUpload;
+            	$resultat = move_uploaded_file($_FILES['avatar']['tmp_name'], $chemin);
+             
+            	if($resultat) {
+                 
+                	setAvatar($_SESSION['rpps'],$extensionUpload);
+
+                	$data = getUserData($_SESSION['rpps']);
+
+                	header('Location:http://localhost/DoctorMetrics/index.php?action=monProfil');
+                 
+             	} else {
+
+             		$data = getUserData($_SESSION['rpps']);
+
+					require('view/viewMonProfil.php');
+
+                	$msg = "Erreur durant l'importation de votre photo de profil.";
+                	echo '<script type="text/javascript">window.alert("'.$msg.'");</script>';
+             	}
+             
+         	} else {
+
+         		$data = getUserData($_SESSION['rpps']);
+
+				require('view/viewMonProfil.php');
+
+            	$msg = "Votre photo de profil doit être au format jpg, jpeg, gif ou png.";
+            	echo '<script type="text/javascript">window.alert("'.$msg.'");</script>';
+         	}
+
+     	} else {
+
+     		$data = getUserData($_SESSION['rpps']);
+
+			require('view/viewMonProfil.php');
+
+        	$msg = "Votre photo de profil doit avoir une taille inférieure à 2 Mo.";
+        	echo '<script type="text/javascript">window.alert("'.$msg.'");</script>';
+   		}
+ 	} else {
+
 		require('view/viewMonProfilModifier.php');
 	}
- if(isset($_FILES['avatar']) AND !empty($_FILES['avatar']['name'])) {
-     
-     $tailleMax = 2097152;
-     $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
-     
-     if($_FILES['avatar']['size'] <= $tailleMax) {
-         
-         $extensionUpload = strtolower(substr(strrchr($_FILES['avatar']['name'], '.'), 1));
-         
-         if(in_array($extensionUpload, $extensionsValides)) {
-             
-             $chemin = "public/Images/membres/avatars/".$_SESSION['rpps'].".".$extensionUpload;
-             $resultat = move_uploaded_file($_FILES['avatar']['tmp_name'], $chemin);
-             
-             if($resultat) {
-                 
-                 setAvatar($_SESSION['rpps'],$extensionUpload);
-                 require('view/viewMonProfil.php');
-                 
-             } else {
-                 
-                 $msg = "Erreur durant l'importation de votre photo de profil";
-             }
-             
-         } else {
-             
-             $msg = "Votre photo de profil doit être au format jpg, jpeg, gif ou png";
-         }
-     } else {
-         
-         $msg = "Votre photo de profil ne doit pas dépasser 2Mo";
-         
-   }
- }
 }
+
 function accueilAdmin() {
 	$data = getUserData($_SESSION['rpps']);
 

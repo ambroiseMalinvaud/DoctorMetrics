@@ -18,9 +18,7 @@
         <div id="ficheprof">
             <div id="profil">
                 <figure>
-                    <?php if(!empty($_SESSION['lalaufort'])) { ?>
-                    <img id="photoProfil" src="public/Images/membres/avatars/<?php echo $_SESSION['lalaufort']; ?>" width="150" alt="Photo de profil"/>
-                    <?php } ?>
+                    <img id="photoProfil" src="public/Images/membres/avatars/<?php echo $data['avatar']; ?>" width="150" alt="Photo de profil"/>
                 </figure>                                              
             </div>
             <div id="texte">
