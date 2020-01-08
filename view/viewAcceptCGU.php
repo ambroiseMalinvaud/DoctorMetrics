@@ -4,6 +4,7 @@
 	<meta charset="utf-8"> 
 	<title>Doctor Metrics</title>
 	<link rel="stylesheet" href="public/css/styleLogin.css">
+	<link rel="icon" type="image/png" href="public/Images/Logo-Doctor-Metrics.png" />
 </head>
 	
 <body>

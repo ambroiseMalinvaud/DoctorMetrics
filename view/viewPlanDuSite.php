@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="public/css/stylePlanDuSite.css">
 	<link rel="stylesheet" href="public/css/styleHeader.css">
   	<link rel="stylesheet" href="public/css/styleFooter.css">
+  	<link rel="icon" type="image/png" href="public/Images/Logo-Doctor-Metrics.png" />
 </head>
 	
 <body>

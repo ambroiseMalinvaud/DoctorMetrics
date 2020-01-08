@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="public/css/styleHeaderAdmin.css">
   	<link rel="stylesheet" href="public/css/styleFooterAdmin.css">
   	<script type="text/javascript" src="view/javascript.js"></script>
+  	<link rel="icon" type="image/png" href="public/Images/Logo-Doctor-Metrics.png" />
 </head>
 
 <body>
