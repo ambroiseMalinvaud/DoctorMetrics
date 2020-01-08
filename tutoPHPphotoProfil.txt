@@ -1,0 +1,9 @@
+Pour que l'affichage des photos de profil marche : 
+
+Modifier dans php.ini :
+
+upload_max_filesize = 20M
+
+et 
+
+post_max_size = 20M
