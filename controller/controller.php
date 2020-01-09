@@ -58,6 +58,10 @@ function passerUnTest() {
 }
 
 function mesResultats() {
+	$req = getTestData($_SESSION['rpps']);
+	$job = getProfession($_SESSION['rpps']);
+	$settings = getTestSettings($job['job']);
+
 	require('view/viewMesResultats.php');
 }
 

@@ -24,6 +24,7 @@ function getUserData($a_rpps) {
 		
 	return $data;
 }
+
 function setAvatar($a_rpps , $exte){
 
     $db = dbConnect();
@@ -128,4 +129,40 @@ function delUser($a_rpps) {
 	$req = $db->prepare("DELETE FROM users WHERE RPPS = :RPPS");
 	$req->execute(array(':RPPS'=>$a_rpps));
 	$data = $req->fetch();
+}
+
+function getTestData($a_rpps) {
+
+	$db = dbConnect();
+		
+	$req = $db->prepare("SELECT * FROM results WHERE RPPS = :RPPS ORDER BY dateOfTest DESC");
+	$req->execute(array(':RPPS'=>$a_rpps));
+	
+	return $req;
+}
+
+function getProfession($a_rpps) {
+
+	$db = dbConnect();
+
+	$req = $db->prepare("SELECT job FROM users NATURAL JOIN profession WHERE RPPS = :RPPS");
+	$req->execute(array(':RPPS'=>$a_rpps));
+	$job = $req->fetch();
+
+	return $job;
+}
+
+function getTestSettings($a_job) {
+
+	$db = dbConnect();
+		
+	$req = $db->prepare("SELECT * FROM settings WHERE job = :JOB");
+	$req->execute(array(':JOB'=>$a_job));
+	$settings = $req->fetch();
+
+	return $settings;
+}
+
+function capability() {
+
 }
