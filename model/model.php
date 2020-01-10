@@ -33,7 +33,6 @@ function setAvatar($a_rpps , $exte){
 	$req->execute(array(
         'avatar' => $a_rpps.".".$exte,
         'RPPS' => $a_rpps ));
-    
 }
 
 function checkExist($a_rpps) {

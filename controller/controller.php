@@ -212,14 +212,16 @@ function statistiquesAdmin() {
 	}
 }
 function randomPassword($taille) {
-	$liste_caractere = 'azertyuiopqsdfghjklmwxcvbn123456789AZERTYUIOPQSDFGHJKLMWXCVBN&$#'; /*on crée une liste contenant les différents caractères
-	présent dans un mot de passe */
+
+	$liste_caractere = 'azertyuiopqsdfghjklmwxcvbn123456789AZERTYUIOPQSDFGHJKLMWXCVBN&$#';
+
 	$mot_de_passe = '';
+
 	for ($i=0;$i<$taille;$i++) {
 		$position_caractere = random_int(0,strlen($liste_caractere)-1);
 		$mot_de_passe .= $liste_caractere[$position_caractere];
-		/* a chaque passage dans la boucle on ajoute un caractère pris aléatoirement dans la liste */
 	}
+
 	return $mot_de_passe;
 }
 
@@ -245,11 +247,9 @@ function gestionUtilisateurs() {
 
 				$req = getUsersData();
 				
-				
-				
 					require('view/viewGestionUtilisateurs.php');
-					$pass_hache = sha1($pass);
 
+					$pass_hache = sha1($pass);
 			
 					addUser($rpps, $tel, $mail, $nom, $prenom, $pass_hache, $adm);
 
@@ -257,14 +257,6 @@ function gestionUtilisateurs() {
 
 					$message = "Le compte a bien été créé.";
 					echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
-
-				
-				
-
-				
-				
-
-				
 
 			} else {
 

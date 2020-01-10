@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 09 jan. 2020 à 14:56
+-- Généré le :  ven. 10 jan. 2020 à 09:07
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `results` (
   `skinTemperature` float DEFAULT NULL,
   `heartRate` int(11) DEFAULT NULL,
   `dateOfTest` date DEFAULT NULL,
-  `capable` int(11) NOT NULL DEFAULT '0',
+  `capable` varchar(3) NOT NULL DEFAULT 'non',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
@@ -72,12 +72,12 @@ CREATE TABLE IF NOT EXISTS `results` (
 --
 
 INSERT INTO `results` (`id`, `RPPS`, `reactionTime`, `soundRecognition`, `colorRecognition`, `skinTemperature`, `heartRate`, `dateOfTest`, `capable`) VALUES
-(1, '123', 263, 9, 10, 32, 68, '2020-01-03', 0),
-(2, '456', 322, 10, 8, 33, 95, '2019-12-25', 0),
-(3, '789', 285, 4, 10, 33, 76, '2019-12-27', 0),
-(4, '789', 235, 9, 9, 34, 78, '2019-12-23', 0),
-(5, '789', 225, 10, 9, 33, 75, '2019-12-12', 0),
-(6, '789', 302, 8, 10, 33.4, 80, '2019-11-21', 0);
+(1, '123', 263, 9, 10, 32, 68, '2020-01-03', '0'),
+(2, '456', 322, 10, 8, 33, 95, '2019-12-25', '0'),
+(3, '789', 285, 4, 10, 33, 76, '2019-12-27', '0'),
+(4, '789', 235, 9, 9, 34, 78, '2019-12-23', '0'),
+(5, '789', 225, 10, 9, 33, 75, '2019-12-12', '0'),
+(6, '789', 302, 8, 10, 33.4, 80, '2019-11-21', '0');
 
 -- --------------------------------------------------------
 
@@ -121,11 +121,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   `lastName` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `firstName` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `password` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `path` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `CGU` tinyint(1) DEFAULT '0',
   `admin` tinyint(1) DEFAULT '0',
-  `position` varchar(128) DEFAULT NULL,
-  `avatar` varchar(128) DEFAULT NULL,
+  `avatar` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT 'PhotoProfil.jpg',
   PRIMARY KEY (`RPPS`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -133,12 +131,12 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`RPPS`, `tel`, `mail`, `lastName`, `firstName`, `password`, `path`, `CGU`, `admin`, `position`, `avatar`) VALUES
-('123', '603571876', 'gregoire@debray.com', 'Debray', 'Gregoire', '2acfa5d173e10de2586042ddb6d9d75415148bc2', NULL, 1, 0, NULL, NULL),
-('456', '603571877', 'alexandre@perbet.com', 'Perbet', 'Alexandre', '0badd0ef0e968c2cdc5e30c04c69261db825f2cb', NULL, 0, 0, NULL, NULL),
-('789', '654546', 'ambroise.malinvaud@isep.fr', 'Malinvaud', 'Ambroise', '9ec4236a09d01395a838f2e774923b4e8548fd19', NULL, 1, 1, NULL, '789.jpg'),
-('147', '603571879', 'alexandre@lalau.com', 'Lalau', 'Alexandre', '9009337cf16333f07109b593405cf7552ed8059a', NULL, 0, 0, NULL, NULL),
-('258', '55555', 'karim@ouarti.com', 'Ouarti', 'Karim', '82451b41fd7878180b6aa2b54e369cbec4e8032c', NULL, 1, 0, NULL, NULL);
+INSERT INTO `users` (`RPPS`, `tel`, `mail`, `lastName`, `firstName`, `password`, `CGU`, `admin`, `avatar`) VALUES
+('123', '603571876', 'gregoire@debray.com', 'Debray', 'Gregoire', '2acfa5d173e10de2586042ddb6d9d75415148bc2', 1, 0, '123.jpg'),
+('456', '603571877', 'alexandre@perbet.com', 'Perbet', 'Alexandre', '0badd0ef0e968c2cdc5e30c04c69261db825f2cb', 0, 0, '456.jpg'),
+('789', '654546', 'ambroise.malinvaud@isep.fr', 'Malinvaud', 'Ambroise', '9ec4236a09d01395a838f2e774923b4e8548fd19', 1, 1, '789.jpg'),
+('147', '603571879', 'alexandre@lalau.com', 'Lalau', 'Alexandre', '9009337cf16333f07109b593405cf7552ed8059a', 1, 0, '147.jpg'),
+('258', '55555', 'karim@ouarti.com', 'Ouarti', 'Karim', '82451b41fd7878180b6aa2b54e369cbec4e8032c', 1, 0, '258.jpg');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
