@@ -240,10 +240,9 @@ function gestionUtilisateurs() {
     		$prenom = $_POST['prenom'];
 			$pass = randomPassword(8);
 			$adm = $_POST['admin'];
-			$message = "votre mot de passe est " ;
-			$message .= $pass;
+			$message = "Bonjour ".$prenom." ".$nom.", \n\nMerci d'avoir choici Doctor Metrics !\nVotre identifiant est : ".$rpps."\nVotre mot de passe est ".$pass."\n\nBonne journée !\nL'équipe Doctor Metrics" ;
 	
-			if($rpps != null AND $tel != null AND $mail != null AND $nom != null AND $prenom != null AND $pass != null AND $adm != null AND mail($mail,"Votre compte doctor metrics a été créé",$message)) {
+			if($rpps != null AND $tel != null AND $mail != null AND $nom != null AND $prenom != null AND $pass != null AND $adm != null AND mail($mail,"Votre compte Doctor Metrics a été créé !",$message)) {
 
 				$req = getUsersData();
 				

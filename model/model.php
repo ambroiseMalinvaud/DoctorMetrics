@@ -163,5 +163,5 @@ function getTestSettings($a_job) {
 }
 
 function capability() {
-
+	
 }

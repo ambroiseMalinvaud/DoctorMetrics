@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 10 jan. 2020 à 09:07
+-- Généré le :  ven. 10 jan. 2020 à 15:16
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -31,10 +31,10 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `profession`;
 CREATE TABLE IF NOT EXISTS `profession` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `RPPS` varchar(11) DEFAULT NULL,
-  `job` varchar(100) DEFAULT NULL,
+  `RPPS` varchar(11) CHARACTER SET latin1 DEFAULT NULL,
+  `job` varchar(100) CHARACTER SET latin1 DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `profession`
@@ -56,16 +56,16 @@ INSERT INTO `profession` (`id`, `RPPS`, `job`) VALUES
 DROP TABLE IF EXISTS `results`;
 CREATE TABLE IF NOT EXISTS `results` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `RPPS` varchar(11) DEFAULT NULL,
+  `RPPS` varchar(11) CHARACTER SET latin1 DEFAULT NULL,
   `reactionTime` int(11) DEFAULT NULL,
   `soundRecognition` int(11) DEFAULT NULL,
   `colorRecognition` int(11) DEFAULT NULL,
   `skinTemperature` float DEFAULT NULL,
   `heartRate` int(11) DEFAULT NULL,
   `dateOfTest` date DEFAULT NULL,
-  `capable` varchar(3) NOT NULL DEFAULT 'non',
+  `capable` varchar(3) CHARACTER SET latin1 NOT NULL DEFAULT 'non',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `results`
@@ -88,7 +88,7 @@ INSERT INTO `results` (`id`, `RPPS`, `reactionTime`, `soundRecognition`, `colorR
 DROP TABLE IF EXISTS `settings`;
 CREATE TABLE IF NOT EXISTS `settings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `job` varchar(100) DEFAULT NULL,
+  `job` varchar(100) CHARACTER SET latin1 DEFAULT NULL,
   `frequency` int(11) DEFAULT NULL,
   `reactionTimeThreshold` int(11) DEFAULT NULL,
   `soundDistinctionThreshold` int(11) DEFAULT NULL,
@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
   `heartRateThreshold` int(11) NOT NULL,
   `skinTempThreshold` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `settings`
@@ -115,7 +115,7 @@ INSERT INTO `settings` (`id`, `job`, `frequency`, `reactionTimeThreshold`, `soun
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `RPPS` varchar(11) NOT NULL,
+  `RPPS` varchar(11) CHARACTER SET latin1 NOT NULL,
   `tel` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `mail` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `lastName` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
@@ -125,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `admin` tinyint(1) DEFAULT '0',
   `avatar` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT 'PhotoProfil.jpg',
   PRIMARY KEY (`RPPS`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `users`

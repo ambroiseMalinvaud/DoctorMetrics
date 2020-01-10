@@ -19,13 +19,27 @@
 
   <h2>Vos objectifs</h2>
 
-  <p class="text1">En tant que <?= $job['job']; ?> vous devez obtenir les scores suivants :</p>
-  <p class="text1">- Votre rythme cardiaque doit être inférieur à <?= $settings['heartRateThreshold']; ?> bpm.</p>
-  <p class="text1">- La température de votre peau doit être supérieure à <?= $settings['skinTempThreshold']; ?> °C.</p>
-  <p class="text1">- Votre note au test de reconnaissance de couleur doit être d'au moins <?= $settings['colorDistinctionThreshold']; ?>/10.</p>
-  <p class="text1">- Votre note au test de reconnaissance de son doit être d'au moins <?= $settings['soundDistinctionThreshold']; ?>/10.</p>
-  <p class="text1">- Votre temps de réaction doit être inférieur à <?= $settings['reactionTimeThreshold']; ?> ms.</p>
-  <br/><p class="text1">Pour votre profession il est recommandé de passer les tests tous les <?= $settings['frequency']; ?> jours.</p>
+  <p class="text2">En tant que <?= $job['job']; ?> vous devez obtenir les scores suivants :</p>
+
+<div id="objectifs">
+  <div class="objectifs1">
+    <ul>
+      <li class="text1">Votre rythme cardiaque doit être inférieur à <?= $settings['heartRateThreshold']; ?> bpm.</li>
+      <li class="text1">La température de votre peau doit être supérieure à <?= $settings['skinTempThreshold']; ?> °C.</li>
+      <li class="text1">Votre note au test de reconnaissance de couleur doit être d'au moins <?= $settings['colorDistinctionThreshold']; ?>/10.</li>
+    </ul>
+  </div>
+  <div class="objectifs1">
+    <ul>
+      <li class="text1">Votre note au test de reconnaissance de son doit être d'au moins <?= $settings['soundDistinctionThreshold']; ?>/10.</li>
+      <li class="text1">Votre temps de réaction doit être inférieur à <?= $settings['reactionTimeThreshold']; ?> ms.</li>
+    </ul>
+  </div>
+</div>
+
+  
+
+  <br/><p class="text2">Pour votre profession il est recommandé de passer les tests tous les <?= $settings['frequency']; ?> jours.</p>
 	
     <table id="table_resultats">
     <h2>Historique de vos tests</h2>
