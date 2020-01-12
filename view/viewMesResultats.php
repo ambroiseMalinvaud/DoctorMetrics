@@ -50,7 +50,7 @@
           <th>Reconnaissance de couleur</th>
           <th>Reconnaissance de sons</th>
           <th>Temps de réaction</th>
-          <th>Aptitude à exercer</th>
+          <th>Test réussi</th>
       </tr>
         <?php 
         while($result = $req->fetch()) {

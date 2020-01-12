@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 10 jan. 2020 à 15:16
+-- Généré le :  Dim 12 jan. 2020 à 11:48
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -65,19 +65,20 @@ CREATE TABLE IF NOT EXISTS `results` (
   `dateOfTest` date DEFAULT NULL,
   `capable` varchar(3) CHARACTER SET latin1 NOT NULL DEFAULT 'non',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `results`
 --
 
 INSERT INTO `results` (`id`, `RPPS`, `reactionTime`, `soundRecognition`, `colorRecognition`, `skinTemperature`, `heartRate`, `dateOfTest`, `capable`) VALUES
-(1, '123', 263, 9, 10, 32, 68, '2020-01-03', '0'),
-(2, '456', 322, 10, 8, 33, 95, '2019-12-25', '0'),
-(3, '789', 285, 4, 10, 33, 76, '2019-12-27', '0'),
-(4, '789', 235, 9, 9, 34, 78, '2019-12-23', '0'),
-(5, '789', 225, 10, 9, 33, 75, '2019-12-12', '0'),
-(6, '789', 302, 8, 10, 33.4, 80, '2019-11-21', '0');
+(1, '123', 263, 9, 10, 32, 68, '2020-01-03', 'oui'),
+(2, '456', 322, 10, 8, 33, 95, '2019-12-25', 'oui'),
+(3, '789', 285, 4, 10, 33, 76, '2019-12-27', 'non'),
+(4, '789', 235, 9, 9, 34, 78, '2019-12-23', 'oui'),
+(5, '789', 225, 10, 9, 33, 75, '2019-12-12', 'oui'),
+(6, '789', 302, 8, 10, 33.4, 80, '2019-11-21', 'non'),
+(7, '123', 300, 7, 7, 35, 95, '2019-12-02', 'oui');
 
 -- --------------------------------------------------------
 

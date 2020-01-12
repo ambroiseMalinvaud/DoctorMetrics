@@ -19,14 +19,9 @@ body {
 	font-family: 'Bahnschrift Regular';
 }
 
-#monEvolution2 {
-    float: none;
-	height : 60%;
-	width: 95%;
-    padding: 0;
-    margin-right: 2.5%;
-    margin-left: 2.5%;
-    margin-top: 2%; 
+#chart_div {
+	display: flex;
+	justify-content: center;
 }
 
 @media all and (max-width: 850px) {

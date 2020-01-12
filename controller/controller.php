@@ -66,6 +66,8 @@ function mesResultats() {
 }
 
 function monEvolution() {
+	//$data = getTestData($_SESSION['rpps']);
+
 	require('view/viewMonEvolution.php');
 }
 
@@ -203,6 +205,8 @@ function accueilAdmin() {
 function statistiquesAdmin() {
 	$data = getUserData($_SESSION['rpps']);
 
+	$req = getTestsData();
+
 	if($data['admin'] == 1) {
 
 		require('view/viewStatistiquesAdmin.php');
@@ -211,6 +215,7 @@ function statistiquesAdmin() {
 		accueil();
 	}
 }
+
 function randomPassword($taille) {
 
 	$liste_caractere = 'azertyuiopqsdfghjklmwxcvbn123456789AZERTYUIOPQSDFGHJKLMWXCVBN&$#';
@@ -240,9 +245,21 @@ function gestionUtilisateurs() {
     		$prenom = $_POST['prenom'];
 			$pass = randomPassword(8);
 			$adm = $_POST['admin'];
-			$message = "Bonjour ".$prenom." ".$nom.", \n\nMerci d'avoir choici Doctor Metrics !\nVotre identifiant est : ".$rpps."\nVotre mot de passe est ".$pass."\n\nBonne journée !\nL'équipe Doctor Metrics" ;
+			$message = "Bonjour ".$prenom." ".$nom.", \n\nMerci d'avoir choisi Doctor Metrics !\n\nVotre identifiant est : ".$rpps."\nVotre mot de passe est : ".$pass."\n\nPar sécurité, une fois que vous avez mémorisé votre mot de passe, merci de supprimer ce mail.\n\nBonne journée !\nL'équipe Doctor Metrics" ;
+
+			$exist = getRPPS($rpps);
 	
-			if($rpps != null AND $tel != null AND $mail != null AND $nom != null AND $prenom != null AND $pass != null AND $adm != null AND mail($mail,"Votre compte Doctor Metrics a été créé !",$message)) {
+			if($exist['RPPS'] == $rpps){
+
+				$req = getUsersData();
+
+				require('view/viewGestionUtilisateurs.php');
+
+				$message = "Un compte est déjà associé à ce numéro RPPS.";
+				echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+
+
+			} elseif($rpps != null AND $tel != null AND $mail != null AND $nom != null AND $prenom != null AND $pass != null AND $adm != null AND mail($mail,"Votre compte Doctor Metrics a été créé !",$message)) {
 
 				$req = getUsersData();
 				

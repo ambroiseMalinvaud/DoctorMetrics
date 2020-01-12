@@ -25,6 +25,17 @@ function getUserData($a_rpps) {
 	return $data;
 }
 
+function getRPPS($a_rpps) {
+		
+	$db = dbConnect();
+		
+	$req = $db->prepare("SELECT RPPS FROM users WHERE RPPS = :RPPS");
+	$req->execute(array(':RPPS'=>$a_rpps));
+	$data = $req->fetch();
+		
+	return $data;
+}
+
 function setAvatar($a_rpps , $exte){
 
     $db = dbConnect();
@@ -160,6 +171,16 @@ function getTestSettings($a_job) {
 	$settings = $req->fetch();
 
 	return $settings;
+}
+
+function getTestsData() {
+
+	$db = dbConnect();
+		
+	$req = $db->prepare("SELECT DISTINCT * FROM users NATURAL JOIN profession NATURAL JOIN results ORDER BY lastName");
+	$req->execute();
+		
+	return $req;
 }
 
 function capability() {
