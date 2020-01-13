@@ -95,7 +95,7 @@ function monProfilModifier() {
 
 		$mail = $_POST['email'];
 		$tel = $_POST['tel'];
-
+		if(mail($mail,"changement d'adresse mail","votre adresse mail a bien été modifiée en ".$mail)){
 		updateTelMail($_SESSION['rpps'], $tel, $mail);
 
 		$data = getUserData($_SESSION['rpps']);
@@ -103,13 +103,18 @@ function monProfilModifier() {
 		header('Location:http://localhost/DoctorMetrics/index.php?action=monProfil');
 
 		$message = 'Votre adresse mail et votre numéro de téléphone ont bien été changés.';
+		echo '<script type="text/javascript">window.alert("'.$message.'");</script>';}
+		else
+		{
+			$message = "Echec lors du changement d'adresse mail.";
 		echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+		}
 
 	} elseif((isset($_POST['email'])) && $_POST['email'] != null){
 
 		$mail = $_POST['email'];
 		$tel = $data['tel'];
-
+		if(mail($mail,"changement d'adresse mail","votre adresse mail a bien été modifiée en ".$mail)){
 		updateMail($_SESSION['rpps'], $mail);
 
 		$data = getUserData($_SESSION['rpps']);
@@ -117,7 +122,12 @@ function monProfilModifier() {
 		header('Location:http://localhost/DoctorMetrics/index.php?action=monProfil');
 
 		$message = 'Votre adresse mail a bien été changée.';
+		echo '<script type="text/javascript">window.alert("'.$message.'");</script>';}
+		else
+		{
+			$message = "Echec lors du changement d'adresse mail.";
 		echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+		}
 
 	} elseif((isset($_POST['tel']))&&$_POST['tel']!= null){
 
