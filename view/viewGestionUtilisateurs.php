@@ -33,7 +33,7 @@
   			}
   			?>
 		</table>
-		<button id="deleteUser"><a href="index.php?action=deleteUser">SUPPRIMER UN UTILISATEUR</a></button>
+		<button id="deleteUser"><a href="deleteUser">SUPPRIMER UN UTILISATEUR</a></button>
 	</div>
 	
 	<div id="addUser">
@@ -42,7 +42,7 @@
 		<div id="col1">
 
 			<p><strong>Numéro RPPS</strong></p>
-				<form method="post" action="index.php?action=gestionUtilisateurs">
+				<form method="post" action="gestionUtilisateurs">
 					<p>
 						<label for="rpps"></label><input type="text" name="rpps" id="rpps" placeholder="12345678912" required/>
 					</p>

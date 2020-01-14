@@ -21,7 +21,7 @@
 	Cela supprimera ses informations et ses données.</strong></p>
 	<p>Entrez le numéro RPPS de l'utilisateur à supprimer :</p>
 	<div id="champ">
-		<form method="post" action="index.php?action=deleteUser">
+		<form method="post" action="deleteUser">
 			<p>
 				<label for="rpps"></label><input type="text" name="rpps" id="rpps" placeholder="12345678912" required/>
 			</p>

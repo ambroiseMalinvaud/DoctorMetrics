@@ -17,7 +17,7 @@
 
 
 
-<form id="contact" method="post" action="index.php?action=envoiMail">
+<form id="contact" method="post" action="envoiMail">
     <fieldset>
         <p><label for ="destinataire">Destinataire : </label>
             <SELECT name="destinataire" size=1>
