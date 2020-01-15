@@ -354,7 +354,7 @@ function resetPassword() {
 
 				if ($presentDansLaBDD[0] == 1) {
 					$pass = randomPassword(8);
-					mail($data['mail'],'Nouveau mot de passe','Votre nouveau mot de passe est : '.$pass)
+					mail($data['mail'],'Nouveau mot de passe','Votre nouveau mot de passe est : '.$pass);
 					$pass_hache = sha1($pass);
 
 					resPassword($_POST['rpps'],$pass_hache);
