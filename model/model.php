@@ -183,6 +183,34 @@ function getTestsData() {
 	return $req;
 }
 
-function capability() {
+function getHeartRate($a_rpps) {
+
+	$db = dbConnect();
+		
+	$req = $db->prepare("SELECT dateOfTest, heartRate, reactionTime FROM results WHERE RPPS = :RPPS");
+	$req->execute(array(':RPPS'=>$a_rpps));
 	
+	return $req;
+}
+
+function countCapableUsers() {
+
+	$db = dbConnect();
+		
+	$req = $db->prepare("SELECT COUNT(DISTINCT RPPS) FROM results WHERE capable = 'oui'");
+	$req->execute(array());
+	$number = $req->fetch();
+
+	return $number[0];
+}
+
+function countNonCapableUsers() {
+
+	$db = dbConnect();
+		
+	$req = $db->prepare("SELECT COUNT(DISTINCT RPPS) FROM results WHERE capable = 'non'");
+	$req->execute(array());
+	$number = $req->fetch();
+
+	return $number[0];
 }

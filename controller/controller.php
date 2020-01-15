@@ -66,12 +66,17 @@ function mesResultats() {
 }
 
 function monEvolution() {
-	//$data = getTestData($_SESSION['rpps']);
+
+	$req = getHeartRate($_SESSION['rpps']);
 
 	require('view/viewMonEvolution.php');
 }
 
 function resultatsHopital() {
+
+	$number1 = intval(countCapableUsers());
+	$number2 = intval(countNonCapableUsers());
+
 	require('view/viewResultatsHopital.php');
 }
 
@@ -95,38 +100,52 @@ function monProfilModifier() {
 
 		$mail = $_POST['email'];
 		$tel = $_POST['tel'];
-		if(mail($mail,"changement d'adresse mail","votre adresse mail a bien été modifiée en ".$mail)){
-		updateTelMail($_SESSION['rpps'], $tel, $mail);
+		$prenom = $data['firstName'];
+		$nom = $data['lastName'];
 
-		$data = getUserData($_SESSION['rpps']);
+		$msg = "Bonjour ".$prenom." ".$nom.", \n\nVotre adresse mail a bien été modifiée en : ".$mail."\n\nBonne journée !\nL'équipe Doctor Metrics";
 
-		header('Location:http://localhost/DoctorMetrics/index.php?action=monProfil');
 
-		$message = 'Votre adresse mail et votre numéro de téléphone ont bien été changés.';
-		echo '<script type="text/javascript">window.alert("'.$message.'");</script>';}
+		if(mail($mail,"Doctor Metrics : changement d'adresse mail", $msg)){
+
+			updateTelMail($_SESSION['rpps'], $tel, $mail);
+
+			$data = getUserData($_SESSION['rpps']);
+
+			$message = 'Votre adresse mail et votre numéro de téléphone ont bien été changés.';
+			echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+
+			header('Location:http://localhost/DoctorMetrics/index.php?action=monProfil');
+
+			}
 		else
 		{
 			$message = "Echec lors du changement d'adresse mail.";
-		echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+			echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
 		}
 
 	} elseif((isset($_POST['email'])) && $_POST['email'] != null){
 
 		$mail = $_POST['email'];
 		$tel = $data['tel'];
-		if(mail($mail,"changement d'adresse mail","votre adresse mail a bien été modifiée en ".$mail)){
-		updateMail($_SESSION['rpps'], $mail);
+		$prenom = $data['firstName'];
+		$nom = $data['lastName'];
+		$msg = "Bonjour ".$prenom." ".$nom.", \n\nVotre adresse mail a bien été modifiée en : ".$mail."\n\nBonne journée !\nL'équipe Doctor Metrics";
 
-		$data = getUserData($_SESSION['rpps']);
+		if(mail($mail,"Doctor Metrics : changement d'adresse mail", $msg)){
+			updateMail($_SESSION['rpps'], $mail);
 
-		header('Location:http://localhost/DoctorMetrics/index.php?action=monProfil');
+			$data = getUserData($_SESSION['rpps']);
 
-		$message = 'Votre adresse mail a bien été changée.';
-		echo '<script type="text/javascript">window.alert("'.$message.'");</script>';}
+			$message = 'Votre adresse mail a bien été changée.';
+			echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+
+			header('Location:http://localhost/DoctorMetrics/index.php?action=monProfil');
+		}
 		else
 		{
 			$message = "Echec lors du changement d'adresse mail.";
-		echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+			echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
 		}
 
 	} elseif((isset($_POST['tel']))&&$_POST['tel']!= null){
