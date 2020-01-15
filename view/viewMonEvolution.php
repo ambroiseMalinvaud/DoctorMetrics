@@ -19,20 +19,19 @@
 
       function drawChart() {
 
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Topping');
-        data.addColumn('number', 'Slices');
-        data.addRows([
-          ['Mushrooms', 3],
-          ['Onions', 1],
-          ['Olives', 1],
-          ['Zucchini', 1],
-          ['Pepperoni', 2]
+        var data = new google.visualization.arrayToDataTable([
+          ['Date', 'Rythme cardiaque', 'Temps de réaction'],
+          <?php 
+          while ($data = $req->fetch()){
+            echo "[' ".(int)$data['dateOfTest']."', ".(int)$data['heartRate'].", ".(int)$data['reactionTime']."],";
+          }
+          ?>
+
         ]);
 
         var options = {'title':'Évolution de vos résultats',
-                       'width':500,
-                       'height':300};
+                       'width':700,
+                       'height':500};
 
         var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
         chart.draw(data, options);
