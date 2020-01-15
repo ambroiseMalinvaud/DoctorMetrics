@@ -33,7 +33,9 @@
   			}
   			?>
 		</table>
-		<button id="deleteUser"><a href="deleteUser">SUPPRIMER UN UTILISATEUR</a></button>
+		<button id="boutonAdmin"><a href="deleteUser">SUPPRIMER UN UTILISATEUR</a></button>
+		<button id="boutonAdmin"><a href="resetPassword">REINITIALISER UN MOT DE PASSE</a></button>
+
 	</div>
 	
 	<div id="addUser">
