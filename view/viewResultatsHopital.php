@@ -25,7 +25,7 @@
           ['Inapte', <?php echo $number2;?>]
         ]);
         var options = {'title':"Pourcentage d'utilisateurs aptes",
-                       'width':700,
+                       'width':500,
                        'height':500,
                         colors: ['ForestGreen', 'red'],
                         fontName: 'Bahnschrift Regular',

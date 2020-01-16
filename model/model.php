@@ -208,6 +208,7 @@ function countNonCapableUsers() {
 	$req = $db->prepare("SELECT COUNT(DISTINCT RPPS) FROM results WHERE capable = 'non'");
 	$req->execute(array());
 	$number = $req->fetch();
+	
 	return $number[0];
 }
 

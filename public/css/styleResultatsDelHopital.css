@@ -28,4 +28,6 @@ body {
 #resultatDelHopital {
 	display: flex;
 	justify-content: center;
+	background-color: white;
+	margin: 3%;
 }

@@ -16,10 +16,10 @@
 <?php require('view/headerAdmin.html'); ?>
 
 <div id="corps">
-	<h1>REINITIALISER UN MOT DE PASSE</h1>
+	<h1>RÉINITIALISER UN MOT DE PASSE</h1>
 	<p id="warning"><strong>Attention la réinitialisation d'un mot de passe est définitive !</br>
 	Cela supprimera l'ancien mot de passe.</strong></p>
-	<p>Entrez le numéro RPPS de l'utilisateur dont on souhaite réinitialiser le mot de passe :</p>
+	<p>Entrez le numéro RPPS de l'utilisateur dont vous souhaitez réinitialiser le mot de passe :</p>
 	<div id="champ">
 		<form method="post" action="resetPassword">
 			<p>

@@ -365,10 +365,14 @@ function resetPassword() {
 
 			$presentDansLaBDD = checkExist($_POST['rpps']);
 
-
 				if ($presentDansLaBDD[0] == 1) {
+
 					$pass = randomPassword(8);
-					mail($data['mail'],'Nouveau mot de passe','Votre nouveau mot de passe est : '.$pass);
+
+					$message = "Bonjour ".$data['firstName']." ".$data['lastName'].", \n\nVotre noouveau mot de passe est : ".$pass."\n\nPar sécurité, une fois que vous avez mémorisé votre mot de passe, merci de supprimer ce mail.\n\nBonne journée !\nL'équipe Doctor Metrics" ;
+
+					mail($data['mail'],'Doctor Metrics : nouveau mot de passe',$message);
+
 					$pass_hache = sha1($pass);
 
 					resPassword($_POST['rpps'],$pass_hache);
