@@ -66,7 +66,6 @@ function mesResultats() {
 }
 
 function monEvolution() {
-<<<<<<< HEAD
 
 	$req = getResults($_SESSION['rpps']);
 	$req2 = getResults($_SESSION['rpps']);
@@ -74,10 +73,8 @@ function monEvolution() {
 	$req4 = getResults($_SESSION['rpps']);
 	$req5 = getResults($_SESSION['rpps']);
 
-=======
-	//$data = getTestData($_SESSION['rpps']);
-	$req = getHeartRate($_SESSION['rpps']);
->>>>>>> d8ebc461147ddee64baeead6eb90986f81e58cbc
+	$req = getResults($_SESSION['rpps']);
+
 	require('view/viewMonEvolution.php');
 }
 

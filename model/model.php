@@ -183,18 +183,16 @@ function getTestsData() {
 	return $req;
 }
 
-<<<<<<< HEAD
+
 function getResults($a_rpps) {
 
-=======
-function getHeartRate($a_rpps) {
->>>>>>> d8ebc461147ddee64baeead6eb90986f81e58cbc
 	$db = dbConnect();
 		
 	$req = $db->prepare("SELECT * FROM results WHERE RPPS = :RPPS ORDER BY dateOfTest");
 	$req->execute(array(':RPPS'=>$a_rpps));
 	return $req;
 }
+
 function countCapableUsers() {
 	$db = dbConnect();
 		
@@ -203,6 +201,7 @@ function countCapableUsers() {
 	$number = $req->fetch();
 	return $number[0];
 }
+
 function countNonCapableUsers() {
 	$db = dbConnect();
 		
@@ -211,6 +210,7 @@ function countNonCapableUsers() {
 	$number = $req->fetch();
 	return $number[0];
 }
+
 function resPassword($a_rpps,$pass_hache) {
 
 	$db = dbConnect();
