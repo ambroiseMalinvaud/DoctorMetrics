@@ -13,9 +13,9 @@
 
       google.charts.load('current', {'packages':['corechart']});
 
-      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawCapable);
 
-      function drawChart() {
+      function drawCapable() {
 
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Statut');
@@ -26,10 +26,13 @@
         ]);
 
         var options = {'title':"Pourcentage d'utilisateurs aptes",
-                       'width':400,
-                       'height':300};
+                       'width':700,
+                       'height':500,
+                        colors: ['ForestGreen', 'red'],
+                        fontName: 'Bahnschrift Regular',
+                        fontSize: '17'};
 
-        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        var chart = new google.visualization.PieChart(document.getElementById('chartCapable'));
         chart.draw(data, options);
       }
     </script>
@@ -39,10 +42,12 @@
 <div id="mainBlock">
 <?php require('header.html'); ?>
 
+<h2 id="title">Résultats des autres utilisateurs</h2>
     
 <div id="resultatDelHopital">
-	<div id="chart_div"></div>
+	<div id="chartCapable"></div>
 </div>
+
 </div>
 
 <?php require('footer.html'); ?>
