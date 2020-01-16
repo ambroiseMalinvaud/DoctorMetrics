@@ -183,34 +183,40 @@ function getTestsData() {
 	return $req;
 }
 
+<<<<<<< HEAD
 function getResults($a_rpps) {
 
+=======
+function getHeartRate($a_rpps) {
+>>>>>>> d8ebc461147ddee64baeead6eb90986f81e58cbc
 	$db = dbConnect();
 		
 	$req = $db->prepare("SELECT * FROM results WHERE RPPS = :RPPS ORDER BY dateOfTest");
 	$req->execute(array(':RPPS'=>$a_rpps));
-	
 	return $req;
 }
-
 function countCapableUsers() {
-
 	$db = dbConnect();
 		
 	$req = $db->prepare("SELECT COUNT(DISTINCT RPPS) FROM results WHERE capable = 'oui'");
 	$req->execute(array());
 	$number = $req->fetch();
-
 	return $number[0];
 }
-
 function countNonCapableUsers() {
-
 	$db = dbConnect();
 		
 	$req = $db->prepare("SELECT COUNT(DISTINCT RPPS) FROM results WHERE capable = 'non'");
 	$req->execute(array());
 	$number = $req->fetch();
-
 	return $number[0];
+}
+function resPassword($a_rpps,$pass_hache) {
+
+	$db = dbConnect();
+
+	$req = $db->prepare("UPDATE users SET password = :PASS WHERE RPPS = :RPPS");
+	$req->bindParam(':RPPS', $a_rpps, PDO::PARAM_INT);
+	$req->bindParam(':PASS', $pass_hache, PDO::PARAM_STR);
+	$req-> execute();
 }

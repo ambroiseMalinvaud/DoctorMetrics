@@ -66,6 +66,7 @@ function mesResultats() {
 }
 
 function monEvolution() {
+<<<<<<< HEAD
 
 	$req = getResults($_SESSION['rpps']);
 	$req2 = getResults($_SESSION['rpps']);
@@ -73,6 +74,10 @@ function monEvolution() {
 	$req4 = getResults($_SESSION['rpps']);
 	$req5 = getResults($_SESSION['rpps']);
 
+=======
+	//$data = getTestData($_SESSION['rpps']);
+	$req = getHeartRate($_SESSION['rpps']);
+>>>>>>> d8ebc461147ddee64baeead6eb90986f81e58cbc
 	require('view/viewMonEvolution.php');
 }
 
@@ -80,7 +85,6 @@ function resultatsHopital() {
 
 	$number1 = intval(countCapableUsers());
 	$number2 = intval(countNonCapableUsers());
-
 	require('view/viewResultatsHopital.php');
 }
 
@@ -108,49 +112,39 @@ function monProfilModifier() {
 		$nom = $data['lastName'];
 
 		$msg = "Bonjour ".$prenom." ".$nom.", \n\nVotre adresse mail a bien été modifiée en : ".$mail."\n\nBonne journée !\nL'équipe Doctor Metrics";
-
-
 		if(mail($mail,"Doctor Metrics : changement d'adresse mail", $msg)){
-
 			updateTelMail($_SESSION['rpps'], $tel, $mail);
-
 			$data = getUserData($_SESSION['rpps']);
-
 			$message = 'Votre adresse mail et votre numéro de téléphone ont bien été changés.';
 			echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
-
 			header('Location:http://localhost/DoctorMetrics/index.php?action=monProfil');
-
 			}
 		else
 		{
 			$message = "Echec lors du changement d'adresse mail.";
-			echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+		echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
 		}
 
 	} elseif((isset($_POST['email'])) && $_POST['email'] != null){
 
 		$mail = $_POST['email'];
 		$tel = $data['tel'];
-		$prenom = $data['firstName'];
+				$prenom = $data['firstName'];
 		$nom = $data['lastName'];
 		$msg = "Bonjour ".$prenom." ".$nom.", \n\nVotre adresse mail a bien été modifiée en : ".$mail."\n\nBonne journée !\nL'équipe Doctor Metrics";
 
 		if(mail($mail,"Doctor Metrics : changement d'adresse mail", $msg)){
 			updateMail($_SESSION['rpps'], $mail);
-
-			$data = getUserData($_SESSION['rpps']);
-
+		$data = getUserData($_SESSION['rpps']);
 			$message = 'Votre adresse mail a bien été changée.';
 			echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
-
 			header('Location:http://localhost/DoctorMetrics/index.php?action=monProfil');
 		}
 		else
 		{
 			$message = "Echec lors du changement d'adresse mail.";
-			echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
-		}
+		echo '<script type="text/javascript">window.alert("'.$message.'");</script>';	
+			}
 
 	} elseif((isset($_POST['tel']))&&$_POST['tel']!= null){
 
@@ -161,7 +155,7 @@ function monProfilModifier() {
 
 		$data = getUserData($_SESSION['rpps']);
 		
-		header('Location:http://localhost/DoctorMetrics/index.php?action=monProfil');
+		header('Location:monProfil');
 
 		$message = 'Votre numéro de téléphone a bien été changé.';
 		echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
@@ -186,7 +180,7 @@ function monProfilModifier() {
 
                 	$data = getUserData($_SESSION['rpps']);
 
-                	header('Location:http://localhost/DoctorMetrics/index.php?action=monProfil');
+                	header('Location:monProfil');
                  
              	} else {
 
@@ -359,6 +353,38 @@ function deleteUser() {
 			} 
 		} else {
 			require('view/viewDeleteUser.php');
+		}
+	} else {
+		accueil();
+	}
+}
+
+function resetPassword() {
+	$data = getUserData($_SESSION['rpps']);
+	
+	if($data['admin'] == 1) {
+
+		if (isset($_POST['rpps'])) {
+
+			$presentDansLaBDD = checkExist($_POST['rpps']);
+
+
+				if ($presentDansLaBDD[0] == 1) {
+					$pass = randomPassword(8);
+					mail($data['mail'],'Nouveau mot de passe','Votre nouveau mot de passe est : '.$pass);
+					$pass_hache = sha1($pass);
+
+					resPassword($_POST['rpps'],$pass_hache);
+
+					$req = getUsersData();
+
+					require('view/viewGestionUtilisateurs.php');
+
+				} else {
+					require('view/viewResetPassword.php');
+				}
+		} else {
+			require('view/viewResetPassword.php');
 		}
 	} else {
 		accueil();

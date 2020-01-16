@@ -31,6 +31,7 @@
           ['Date', 'ms'],
           <?php 
           while ($data = $req->fetch()){
+<<<<<<< HEAD
 
             echo "[' ".$data['dateOfTest']."', ".(int)$data['reactionTime']."],";
           }
@@ -85,6 +86,9 @@
           while ($data = $req3->fetch()){
 
             echo "[' ".$data['dateOfTest']."', ".(int)$data['soundRecognition']."],";
+=======
+            echo "[' ".(int)$data['dateOfTest']."', ".(int)$data['heartRate'].", ".(int)$data['reactionTime']."],";
+>>>>>>> d8ebc461147ddee64baeead6eb90986f81e58cbc
           }
           ?>
 

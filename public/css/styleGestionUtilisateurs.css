@@ -67,7 +67,7 @@ body {
 	text-align: center;
 }
 
-#deleteUser {
+#boutonAdmin {
 	align-self: center;
 	background-color: grey;
 	border: none;
@@ -79,12 +79,12 @@ body {
 	margin-bottom: 5%;
 }
 
-#deleteUser a {
+#boutonAdmin a {
 	text-decoration: none;
 	color: white;
 }
 
-#deleteUser a:hover {
+#boutonAdmin a:hover {
 	text-decoration: none;
 	color: black;
 }

@@ -44,7 +44,10 @@ if (isset($_GET['action'])) {
         formulaireAdmin();
     } elseif ($_GET['action'] == 'envoiMail'&& isset($_SESSION['rpps'])) {
         envoiMail();
-    } else {
+    } elseif ($_GET['action'] == 'resetPassword'&& isset($_SESSION['rpps'])) {
+        resetPassword();
+    }
+    else {
 		login();
 	}
 } else {
