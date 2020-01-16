@@ -67,7 +67,11 @@ function mesResultats() {
 
 function monEvolution() {
 
-	$req = getHeartRate($_SESSION['rpps']);
+	$req = getResults($_SESSION['rpps']);
+	$req2 = getResults($_SESSION['rpps']);
+	$req3 = getResults($_SESSION['rpps']);
+	$req4 = getResults($_SESSION['rpps']);
+	$req5 = getResults($_SESSION['rpps']);
 
 	require('view/viewMonEvolution.php');
 }

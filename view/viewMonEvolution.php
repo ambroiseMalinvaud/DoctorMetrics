@@ -15,28 +15,148 @@
 
       google.charts.load('current', {'packages':['corechart'], 'language': 'fr'});
 
-      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawHeartRate);
 
-      function drawChart() {
+      google.charts.setOnLoadCallback(drawReactionTime);
+
+      google.charts.setOnLoadCallback(drawSoundRecognition);
+
+      google.charts.setOnLoadCallback(drawColorRecognition);
+
+      google.charts.setOnLoadCallback(drawSkinTemperature);
+
+      function drawReactionTime() {
 
         var data = new google.visualization.arrayToDataTable([
-          ['Date', 'Rythme cardiaque', 'Temps de réaction'],
+          ['Date', 'ms'],
           <?php 
           while ($data = $req->fetch()){
 
-            echo "[' ".(int)$data['dateOfTest']."', ".(int)$data['heartRate'].", ".(int)$data['reactionTime']."],";
+            echo "[' ".$data['dateOfTest']."', ".(int)$data['reactionTime']."],";
           }
           ?>
 
         ]);
 
-        var options = {'title':'Évolution de vos résultats',
-                       'width':700,
-                       'height':500};
+        var options = {'title':'Évolution de votre temps de réaction',
+                      'width':700,
+                      'height':500,
+                      colors: ['RoyalBlue'],
+                      vAxis: {minValue: 200},
+                      vAxis: {title: 'Temps de réaction en millisecondes (ms)'},
+                      fontName: 'Bahnschrift Regular',
+                      fontSize: '17'};
 
-        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        var chart = new google.visualization.SteppedAreaChart(document.getElementById('chartReactionTime'));
         chart.draw(data, options);
       }
+
+      function drawHeartRate() {
+
+        var data = new google.visualization.arrayToDataTable([
+          ['Date', 'bpm'],
+          <?php 
+          while ($data = $req2->fetch()){
+
+            echo "[' ".$data['dateOfTest']."', ".(int)$data['heartRate']."],";
+          }
+          ?>
+
+        ]);
+
+        var options = {'title':'Évolution de votre rythme cardiaque',
+                      'width':700,
+                      'height':500,
+                      colors: ['red'],
+                      vAxis: {minValue: 60},
+                      vAxis: {title: 'Battements par minute (bpm)'},
+                      fontName: 'Bahnschrift Regular',
+                      fontSize: '17'};
+
+        var chart = new google.visualization.SteppedAreaChart(document.getElementById('chartHeartRate'));
+        chart.draw(data, options);
+      }
+
+      function drawSoundRecognition() {
+
+        var data = new google.visualization.arrayToDataTable([
+          ['Date', 'Note sur 10'],
+          <?php 
+          while ($data = $req3->fetch()){
+
+            echo "[' ".$data['dateOfTest']."', ".(int)$data['soundRecognition']."],";
+          }
+          ?>
+
+        ]);
+
+        var options = {'title':'Évolution de votre note au test de son',
+                      'width':700,
+                      'height':500,
+                      colors: ['grey'],
+                      vAxis: {minValue: 0},
+                      vAxis: {title: 'Note sur 10'},
+                      fontName: 'Bahnschrift Regular',
+                      fontSize: '17'};
+
+        var chart = new google.visualization.SteppedAreaChart(document.getElementById('chartSoundRecognition'));
+        chart.draw(data, options);
+      }
+
+      function drawColorRecognition() {
+
+        var data = new google.visualization.arrayToDataTable([
+          ['Date', 'Note sur 10'],
+          <?php 
+          while ($data = $req4->fetch()){
+
+            echo "[' ".$data['dateOfTest']."', ".(int)$data['colorRecognition']."],";
+          }
+          ?>
+
+        ]);
+
+        var options = {'title':'Évolution de votre note au test de reconnaissance de couleur',
+                      'width':700,
+                      'height':500,
+                      colors: ['green'],
+                      vAxis: {minValue: 0},
+                      vAxis: {title: 'Note sur 10'},
+                      fontName: 'Bahnschrift Regular',
+                      fontSize: '17'};
+
+        var chart = new google.visualization.SteppedAreaChart(document.getElementById('chartColorRecognition'));
+        chart.draw(data, options);
+      }
+
+      function drawSkinTemperature() {
+
+        var data = new google.visualization.arrayToDataTable([
+          ['Date', '°C'],
+          <?php 
+          while ($data = $req5->fetch()){
+
+            echo "[' ".$data['dateOfTest']."', ".(int)$data['skinTemperature']."],";
+          }
+          ?>
+
+        ]);
+
+        var options = {'title':'Évolution de la température de votre peau',
+                      'width':700,
+                      'height':500,
+                      colors: ['DarkOrchid'],
+                      vAxis: {minValue: 25},
+                      vAxis: {title: 'Température de la peau en °C'},
+                      fontName: 'Bahnschrift Regular',
+                      fontSize: '17'};
+
+        var chart = new google.visualization.SteppedAreaChart(document.getElementById('chartSkinTemperature'));
+        chart.draw(data, options);
+      }
+      
+
+      
     </script>
 </head>
 	
@@ -44,8 +164,20 @@
 <div id="mainBlock">
 	<?php require('header.html'); ?>
 
-	<div id="chart_div"></div>
+<h2 id="title">Évolution de vos résultats aux différents tests</h2>
 
+<div id="Graphs">
+  <div id="Graphs1">
+    <div id="chartHeartRate"></div>
+    <div id="chartReactionTime"></div>
+    <div id="chartSkinTemperature"></div>
+  </div>
+  <div id="Graphs2">
+    <div id="chartSoundRecognition"></div>
+    <div id="chartColorRecognition"></div>
+  </div>
+</div>
+  
 </div>
 	
 <?php require('footer.html'); ?>

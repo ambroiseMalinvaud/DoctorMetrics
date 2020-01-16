@@ -183,11 +183,11 @@ function getTestsData() {
 	return $req;
 }
 
-function getHeartRate($a_rpps) {
+function getResults($a_rpps) {
 
 	$db = dbConnect();
 		
-	$req = $db->prepare("SELECT dateOfTest, heartRate, reactionTime FROM results WHERE RPPS = :RPPS");
+	$req = $db->prepare("SELECT * FROM results WHERE RPPS = :RPPS ORDER BY dateOfTest");
 	$req->execute(array(':RPPS'=>$a_rpps));
 	
 	return $req;
