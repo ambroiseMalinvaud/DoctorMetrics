@@ -58,14 +58,30 @@ function passerUnTest() {
 }
 
 function mesResultats() {
+	$req = getTestData($_SESSION['rpps']);
+	$job = getProfession($_SESSION['rpps']);
+	$settings = getTestSettings($job['job']);
+
 	require('view/viewMesResultats.php');
 }
 
 function monEvolution() {
+
+	$req = getResults($_SESSION['rpps']);
+	$req2 = getResults($_SESSION['rpps']);
+	$req3 = getResults($_SESSION['rpps']);
+	$req4 = getResults($_SESSION['rpps']);
+	$req5 = getResults($_SESSION['rpps']);
+
+	$req = getResults($_SESSION['rpps']);
+
 	require('view/viewMonEvolution.php');
 }
 
 function resultatsHopital() {
+
+	$number1 = intval(countCapableUsers());
+	$number2 = intval(countNonCapableUsers());
 	require('view/viewResultatsHopital.php');
 }
 
@@ -89,29 +105,43 @@ function monProfilModifier() {
 
 		$mail = $_POST['email'];
 		$tel = $_POST['tel'];
+		$prenom = $data['firstName'];
+		$nom = $data['lastName'];
 
-		updateTelMail($_SESSION['rpps'], $tel, $mail);
-
-		$data = getUserData($_SESSION['rpps']);
-
-		header('Location:http://localhost/DoctorMetrics/index.php?action=monProfil');
-
-		$message = 'Votre adresse mail et votre numéro de téléphone ont bien été changés.';
+		$msg = "Bonjour ".$prenom." ".$nom.", \n\nVotre adresse mail a bien été modifiée en : ".$mail."\n\nBonne journée !\nL'équipe Doctor Metrics";
+		if(mail($mail,"Doctor Metrics : changement d'adresse mail", $msg)){
+			updateTelMail($_SESSION['rpps'], $tel, $mail);
+			$data = getUserData($_SESSION['rpps']);
+			$message = 'Votre adresse mail et votre numéro de téléphone ont bien été changés.';
+			echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+			header('Location:http://localhost/DoctorMetrics/index.php?action=monProfil');
+			}
+		else
+		{
+			$message = "Echec lors du changement d'adresse mail.";
 		echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+		}
 
 	} elseif((isset($_POST['email'])) && $_POST['email'] != null){
 
 		$mail = $_POST['email'];
 		$tel = $data['tel'];
+				$prenom = $data['firstName'];
+		$nom = $data['lastName'];
+		$msg = "Bonjour ".$prenom." ".$nom.", \n\nVotre adresse mail a bien été modifiée en : ".$mail."\n\nBonne journée !\nL'équipe Doctor Metrics";
 
-		updateMail($_SESSION['rpps'], $mail);
-
+		if(mail($mail,"Doctor Metrics : changement d'adresse mail", $msg)){
+			updateMail($_SESSION['rpps'], $mail);
 		$data = getUserData($_SESSION['rpps']);
-
-		header('Location:http://localhost/DoctorMetrics/index.php?action=monProfil');
-
-		$message = 'Votre adresse mail a bien été changée.';
-		echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+			$message = 'Votre adresse mail a bien été changée.';
+			echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+			header('Location:http://localhost/DoctorMetrics/index.php?action=monProfil');
+		}
+		else
+		{
+			$message = "Echec lors du changement d'adresse mail.";
+		echo '<script type="text/javascript">window.alert("'.$message.'");</script>';	
+			}
 
 	} elseif((isset($_POST['tel']))&&$_POST['tel']!= null){
 
@@ -122,7 +152,7 @@ function monProfilModifier() {
 
 		$data = getUserData($_SESSION['rpps']);
 		
-		header('Location:http://localhost/DoctorMetrics/index.php?action=monProfil');
+		header('Location:monProfil');
 
 		$message = 'Votre numéro de téléphone a bien été changé.';
 		echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
@@ -147,7 +177,7 @@ function monProfilModifier() {
 
                 	$data = getUserData($_SESSION['rpps']);
 
-                	header('Location:http://localhost/DoctorMetrics/index.php?action=monProfil');
+                	header('Location:monProfil');
                  
              	} else {
 
@@ -199,6 +229,8 @@ function accueilAdmin() {
 function statistiquesAdmin() {
 	$data = getUserData($_SESSION['rpps']);
 
+	$req = getTestsData();
+
 	if($data['admin'] == 1) {
 
 		require('view/viewStatistiquesAdmin.php');
@@ -207,15 +239,18 @@ function statistiquesAdmin() {
 		accueil();
 	}
 }
+
 function randomPassword($taille) {
-	$liste_caractere = 'azertyuiopqsdfghjklmwxcvbn123456789AZERTYUIOPQSDFGHJKLMWXCVBN&$#'; /*on crée une liste contenant les différents caractères
-	présent dans un mot de passe */
+
+	$liste_caractere = 'azertyuiopqsdfghjklmwxcvbn123456789AZERTYUIOPQSDFGHJKLMWXCVBN&$#';
+
 	$mot_de_passe = '';
+
 	for ($i=0;$i<$taille;$i++) {
 		$position_caractere = random_int(0,strlen($liste_caractere)-1);
 		$mot_de_passe .= $liste_caractere[$position_caractere];
-		/* a chaque passage dans la boucle on ajoute un caractère pris aléatoirement dans la liste */
 	}
+
 	return $mot_de_passe;
 }
 
@@ -234,18 +269,27 @@ function gestionUtilisateurs() {
     		$prenom = $_POST['prenom'];
 			$pass = randomPassword(8);
 			$adm = $_POST['admin'];
-			$message = "votre mot de passe est " ;
-			$message .= $pass;
+			$message = "Bonjour ".$prenom." ".$nom.", \n\nMerci d'avoir choisi Doctor Metrics !\n\nVotre identifiant est : ".$rpps."\nVotre mot de passe est : ".$pass."\n\nPar sécurité, une fois que vous avez mémorisé votre mot de passe, merci de supprimer ce mail.\n\nBonne journée !\nL'équipe Doctor Metrics" ;
+
+			$exist = getRPPS($rpps);
 	
-			if($rpps != null AND $tel != null AND $mail != null AND $nom != null AND $prenom != null AND $pass != null AND $adm != null AND mail($mail,"Votre compte doctor metrics a été créé",$message)) {
+			if($exist['RPPS'] == $rpps){
+
+				$req = getUsersData();
+
+				require('view/viewGestionUtilisateurs.php');
+
+				$message = "Un compte est déjà associé à ce numéro RPPS.";
+				echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+
+
+			} elseif($rpps != null AND $tel != null AND $mail != null AND $nom != null AND $prenom != null AND $pass != null AND $adm != null AND mail($mail,"Votre compte Doctor Metrics a été créé !",$message)) {
 
 				$req = getUsersData();
 				
-				
-				
 					require('view/viewGestionUtilisateurs.php');
-					$pass_hache = sha1($pass);
 
+					$pass_hache = sha1($pass);
 			
 					addUser($rpps, $tel, $mail, $nom, $prenom, $pass_hache, $adm);
 
@@ -253,14 +297,6 @@ function gestionUtilisateurs() {
 
 					$message = "Le compte a bien été créé.";
 					echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
-
-				
-				
-
-				
-				
-
-				
 
 			} else {
 
@@ -314,6 +350,42 @@ function deleteUser() {
 			} 
 		} else {
 			require('view/viewDeleteUser.php');
+		}
+	} else {
+		accueil();
+	}
+}
+
+function resetPassword() {
+	$data = getUserData($_SESSION['rpps']);
+	
+	if($data['admin'] == 1) {
+
+		if (isset($_POST['rpps'])) {
+
+			$presentDansLaBDD = checkExist($_POST['rpps']);
+
+				if ($presentDansLaBDD[0] == 1) {
+
+					$pass = randomPassword(8);
+
+					$message = "Bonjour ".$data['firstName']." ".$data['lastName'].", \n\nVotre noouveau mot de passe est : ".$pass."\n\nPar sécurité, une fois que vous avez mémorisé votre mot de passe, merci de supprimer ce mail.\n\nBonne journée !\nL'équipe Doctor Metrics" ;
+
+					mail($data['mail'],'Doctor Metrics : nouveau mot de passe',$message);
+
+					$pass_hache = sha1($pass);
+
+					resPassword($_POST['rpps'],$pass_hache);
+
+					$req = getUsersData();
+
+					require('view/viewGestionUtilisateurs.php');
+
+				} else {
+					require('view/viewResetPassword.php');
+				}
+		} else {
+			require('view/viewResetPassword.php');
 		}
 	} else {
 		accueil();

@@ -33,18 +33,28 @@
   			}
   			?>
 		</table>
-		<button id="deleteUser"><a href="index.php?action=deleteUser">SUPPRIMER UN UTILISATEUR</a></button>
+		<button class="boutonAdmin"><a href="deleteUser">SUPPRIMER UN UTILISATEUR</a></button>
+		<button class="boutonAdmin"><a href="resetPassword">REINITIALISER UN MOT DE PASSE</a></button>
+
 	</div>
 	
 	<div id="addUser">
 		<h3>Ajouter un utilisateur :</h3>
 		<div id="blocAdd">
 		<div id="col1">
-
+                <script type="text/javascript">
+                    function popupMessage(){
+                        var e = document.getElementById("rpps")
+                        var longueurMdp = "faible";
+                        if (e.value.length <= 11) {
+                            alert('message trop court');
+                            } 
+                    }    
+                </script>
 			<p><strong>Numéro RPPS</strong></p>
-				<form method="post" action="index.php?action=gestionUtilisateurs">
+				<form method="post" action="gestionUtilisateurs">
 					<p>
-						<label for="rpps"></label><input type="text" name="rpps" id="rpps" placeholder="12345678912" required/>
+						<label for="rpps"></label><input type="text" name="rpps" id="rpps" placeholder="12345678912" minlength="11" maxlength="11" required onfocusout="popupMessage()"/>
 					</p>
 				
 			<p><strong>Adresse mail</strong></p>

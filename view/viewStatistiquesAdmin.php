@@ -20,90 +20,23 @@
 		<h3>Résultats des derniers tests : </h3>
 		<table>
   		 <tr>
+  		 	 <th>Date</th>
       		 <th>Nom</th>
       		 <th>Prénom</th>
       		 <th>Poste</th>
-			 <th>Aptitude</th>
-			 <th>Date</th>
-			 <th>Heure</th>
+			 <th>Test réussi</th>
    		</tr>
-  		<tr>
-    		 <td>PERBET</td>
-    		 <td>Alexandre</td>
-    		 <td>Chirurgien</td>
-			 <td>Apte</td>
-			 <td>28/11/2019</td>
-			 <td>19:36</td>
-  		</tr>
-		<tr>
-    		 <td>MALINVAUD</td>
-    		 <td>Ambroise</td>
-    		 <td>Docteur</td>
-			 <td>Inapte</td>
-			 <td>27/11/2019</td>
-			 <td>9:45</td>
-  		</tr>
-		<tr>
-    		 <td>LALAU</td>
-    		 <td>Alexandre</td>
-    		 <td>Chirurgien</td>
-			 <td>Apte</td>
-			 <td>27/11/2019</td>
-			 <td>8:30</td>
-  		</tr>
-		<tr>
-    		 <td>OUARTI</td>
-    		 <td>Karim</td>
-    		 <td>Docteur</td>
-			 <td>Apte</td>
-			 <td>26/11/2019</td>
-			 <td>20:15</td>
-  		</tr>
-		<tr>
-    		 <td>DEBRAY-GENTY</td>
-    		 <td>Grégoire</td>
-    		 <td>Infirmier</td>
-			 <td>Inapte</td>
-			 <td>26/11/2019</td>
-			 <td>15:56</td>
-  		</tr>
-  		 
-		</table>
-	</div>
-	<div id="aptitude">
-		<h3>Résumé du personnel : </h3>
-		<table>
-  		 <tr>
-      		 <th>Nom</th>
-			 <th>Prénom</th>
-			 <th>Aptitude</th>
-   		</tr>
-  		<tr>
-    		 <td>PERBET</td>
-			<td>Alexandre</td>
-			 <td>Apte</td>
-  		</tr>
-		<tr>
-    		 <td>MALINVAUD</td>
-    		 <td>Ambroise</td>
-			 <td>Inapte</td>
-  		</tr>
-		<tr>
-    		 <td>LALAU</td>
-    		 <td>Alexandre</td>
-			 <td>Apte</td>
-  		</tr>
-		<tr>
-    		 <td>OUARTI</td>
-    		 <td>Karim</td>
-			 <td>Apte</td>
-  		</tr>
-		<tr>
-    		 <td>DEBRAY-GENTY</td>
-    		 <td>Grégoire</td>
-			 <td>Inapte</td>
-  		</tr>
-  		 
+   		<?php 
+   			while($users = $req->fetch()) {
+   				echo '<tr>';
+   				echo '<td>' . $users['dateOfTest'] . '</td>';
+  				echo '<td>' . $users['lastName'] . '</td>';
+  				echo '<td>' . $users['firstName'] . '</td>';
+  				echo '<td>' . $users['job'] . '</td>';
+  				echo '<td>' . $users['capable'] . '</td>';
+  				echo '</tr>';
+  			}
+  			?>
 		</table>
 	</div>
 </div>

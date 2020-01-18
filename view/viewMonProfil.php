@@ -36,15 +36,15 @@
             </div>
         </div>
         <div id="infoUserFooter">
-			<button><strong><a href="index.php?action=monProfilModifier">Modifier</a></strong></button>
-			<button><strong><a id="quitter"href="index.php?action=logout" onclick="pop()">Se déconnecter</a></strong></button>
+			<button><strong><a href="monProfilModifier">Modifier</a></strong></button>
+			<button><strong><a id="quitter"href="logout" onclick="pop()">Se déconnecter</a></strong></button>
             <script type="text/javascript">
                 function pop() {
                     var quitter = document.getElementById("quitter");
                     var result = confirm("Voulez-vous vraiment quitter cette page?");
                     if (result == true) {
                         alert("Merci de votre visite");
-                        quitter.href= "index.php?action=login";
+                        quitter.href= "login";
                     }
                     else {
                         alert("Merci de rester avec nous");
@@ -58,7 +58,7 @@
 		if ($data['admin'] == 1 )
 		{
 			echo'<div id="modeAdmin">
-			<button><strong><a href="index.php?action=accueilAdmin">Mode administrateur</a></strong></button>';
+			<button><strong><a href="accueilAdmin">Mode administrateur</a></strong></button>';
 		}
 		?>
 	</div>

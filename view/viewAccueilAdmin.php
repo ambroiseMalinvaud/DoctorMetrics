@@ -18,11 +18,11 @@
 <div id="corps">
 	<h2>Bonjour <?= $data['firstName'].' '.$data['lastName']; ?>,</h2>
 	<p id="adminMessage">En tant qu'administrateur vous pouvez : </p>
-	<button><a href="index.php?action=statistiquesAdmin">ACCÉDER AUX STATISTIQUES</a></button>
+	<button><a href="statistiquesAdmin">ACCÉDER AUX STATISTIQUES</a></button>
 	<p>Accéder aux statistiques de chaque utilisateur ainsi qu'aux statistiques globales de l'hôpital.</p>
-	<button><a href="index.php?action=gestionUtilisateurs">GÉRER LES UTILISATEURS</a></button>
+	<button><a href="gestionUtilisateurs">GÉRER LES UTILISATEURS</a></button>
 	<p>Ajouter, supprimer et modifier le profil des utilisateurs.</p>
-	<button><a href="gestionTests.php">GÉRER LES TESTS</a></button>
+	<button><a href="gestionTests">GÉRER LES TESTS</a></button>
 	<p>Paramétrer le type, la fréquence et les seuils de réussite de chaque test.</p>
 </div>
 </div>

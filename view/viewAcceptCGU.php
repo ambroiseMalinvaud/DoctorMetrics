@@ -110,8 +110,8 @@ Le présent contrat est soumis à la législation française. L’absence de ré
 
 <p><strong>Vous devez accepter les conditions générales d'utilisation pour accéder à nos services.</strong></p>
 	<div ID="boutons">
-    	<button><strong><a href="index.php?action=logout">Refuser</a></strong></button>
-    	<button><strong><a href="index.php?action=accepted">Accepter</a></strong></button>
+    	<button><strong><a href="logout">Refuser</a></strong></button>
+    	<button><strong><a href="accepted">Accepter</a></strong></button>
 	</div>
 </div>
  

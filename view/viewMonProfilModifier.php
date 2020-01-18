@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php require('header.html'); ?>
-    <form action ="index.php?action=monProfilModifier" method="POST" enctype="multipart/form-data">
+    <form action ="monProfilModifier" method="POST" enctype="multipart/form-data">
         <div id="corps">
             <div id="infoUser">
                 <h3>Bonjour <?= $data['firstName'].' '.$data['lastName'];   ?></h3>

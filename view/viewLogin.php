@@ -12,7 +12,7 @@
 		<a><img id="logo" src="public/Images/DoctorMetrics.png" alt="Logo Doctor Metrics" title="Doctor Metrics"></a>
 	</figure>
 </header>
-<form method="post" action="index.php?action=login">
+<form method="post" action="login">
 	<div id="corps" >
 			<ul id="connexion">
       			<li><label>Identifiant RPPS : </label><input type="text" name="rpps" size= "20" maxlength = "20"/></li>

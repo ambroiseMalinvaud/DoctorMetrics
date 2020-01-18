@@ -24,6 +24,18 @@ function getUserData($a_rpps) {
 		
 	return $data;
 }
+
+function getRPPS($a_rpps) {
+		
+	$db = dbConnect();
+		
+	$req = $db->prepare("SELECT RPPS FROM users WHERE RPPS = :RPPS");
+	$req->execute(array(':RPPS'=>$a_rpps));
+	$data = $req->fetch();
+		
+	return $data;
+}
+
 function setAvatar($a_rpps , $exte){
 
     $db = dbConnect();
@@ -32,7 +44,6 @@ function setAvatar($a_rpps , $exte){
 	$req->execute(array(
         'avatar' => $a_rpps.".".$exte,
         'RPPS' => $a_rpps ));
-    
 }
 
 function checkExist($a_rpps) {
@@ -128,4 +139,85 @@ function delUser($a_rpps) {
 	$req = $db->prepare("DELETE FROM users WHERE RPPS = :RPPS");
 	$req->execute(array(':RPPS'=>$a_rpps));
 	$data = $req->fetch();
+}
+
+function getTestData($a_rpps) {
+
+	$db = dbConnect();
+		
+	$req = $db->prepare("SELECT * FROM results WHERE RPPS = :RPPS ORDER BY dateOfTest DESC");
+	$req->execute(array(':RPPS'=>$a_rpps));
+	
+	return $req;
+}
+
+function getProfession($a_rpps) {
+
+	$db = dbConnect();
+
+	$req = $db->prepare("SELECT job FROM users NATURAL JOIN profession WHERE RPPS = :RPPS");
+	$req->execute(array(':RPPS'=>$a_rpps));
+	$job = $req->fetch();
+
+	return $job;
+}
+
+function getTestSettings($a_job) {
+
+	$db = dbConnect();
+		
+	$req = $db->prepare("SELECT * FROM settings WHERE job = :JOB");
+	$req->execute(array(':JOB'=>$a_job));
+	$settings = $req->fetch();
+
+	return $settings;
+}
+
+function getTestsData() {
+
+	$db = dbConnect();
+		
+	$req = $db->prepare("SELECT DISTINCT * FROM users NATURAL JOIN profession NATURAL JOIN results ORDER BY lastName");
+	$req->execute();
+		
+	return $req;
+}
+
+
+function getResults($a_rpps) {
+
+	$db = dbConnect();
+		
+	$req = $db->prepare("SELECT * FROM results WHERE RPPS = :RPPS ORDER BY dateOfTest");
+	$req->execute(array(':RPPS'=>$a_rpps));
+	return $req;
+}
+
+function countCapableUsers() {
+	$db = dbConnect();
+		
+	$req = $db->prepare("SELECT COUNT(DISTINCT RPPS) FROM results WHERE capable = 'oui'");
+	$req->execute(array());
+	$number = $req->fetch();
+	return $number[0];
+}
+
+function countNonCapableUsers() {
+	$db = dbConnect();
+		
+	$req = $db->prepare("SELECT COUNT(DISTINCT RPPS) FROM results WHERE capable = 'non'");
+	$req->execute(array());
+	$number = $req->fetch();
+	
+	return $number[0];
+}
+
+function resPassword($a_rpps,$pass_hache) {
+
+	$db = dbConnect();
+
+	$req = $db->prepare("UPDATE users SET password = :PASS WHERE RPPS = :RPPS");
+	$req->bindParam(':RPPS', $a_rpps, PDO::PARAM_INT);
+	$req->bindParam(':PASS', $pass_hache, PDO::PARAM_STR);
+	$req-> execute();
 }

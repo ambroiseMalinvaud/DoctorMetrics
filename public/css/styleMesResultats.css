@@ -24,39 +24,63 @@ body {
  	width: 98%;
 	position: relative;
     left: 1%;
-    height:100%;
 }
 
 table {
 	border: medium solid #000000;
 	border-collapse: collapse;
-	width: fit-content;
 	margin-top: 1%;
 }
 
 th {
 	color: white;
-	font-family: monospace;
+	font-family: 'Bahnschrift Regular';
 	border: thin solid #ffffff;
-	width: fit-content;
 	padding: 5px;
 	background-color: #507C89;
-	background-image: url(sky.jpg);
 }
 
 td {
-	font-family: sans-serif;
+	font-family: 'Bahnschrift Regular';
 	border: thin solid #000000;
-	width: fit-content;
 	padding: 5px;
 	text-align: center;
 	background-color: #ffffff;
 }
 
-caption {
+h2 {
 	font-size: 30px; 
-	font-family: sans-serif;
+	font-family: 'Bahnschrift Regular';
 	margin: 2%;
+	text-align: center;
+}
+
+.text1 {
+	font-size: 1.2em;
+	text-align: left;
+	margin: 0px;
+}
+
+.text2 {
+	font-size: 1.2em;
+	text-align: center;
+	margin: 0px;
+}
+
+#message {
+	font-size: 1.5em;
+	text-align: center;
+}
+
+#objectifs {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.objectifs1 {
+	display: flex;
+	flex-direction: column;
 }
 
 @media all and (max-width: 850px) {

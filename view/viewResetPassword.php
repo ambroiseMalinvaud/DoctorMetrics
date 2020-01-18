@@ -16,17 +16,17 @@
 <?php require('view/headerAdmin.html'); ?>
 
 <div id="corps">
-	<h1>SUPPRIMER UN UTILISATEUR</h1>
-	<p id="warning"><strong>Attention la suppression d'un utilisateur est irréversible !</br>
-	Cela supprimera ses informations et ses données.</strong></p>
-	<p>Entrez le numéro RPPS de l'utilisateur à supprimer :</p>
+	<h1>RÉINITIALISER UN MOT DE PASSE</h1>
+	<p id="warning"><strong>Attention la réinitialisation d'un mot de passe est définitive !</br>
+	Cela supprimera l'ancien mot de passe.</strong></p>
+	<p>Entrez le numéro RPPS de l'utilisateur dont vous souhaitez réinitialiser le mot de passe :</p>
 	<div id="champ">
-		<form method="post" action="deleteUser">
+		<form method="post" action="resetPassword">
 			<p>
 				<label for="rpps"></label><input type="text" name="rpps" id="rpps" placeholder="12345678912" required/>
 			</p>
 	</div>
-		<input id="bouton" type="submit" value="Supprimer l'utilisateur">
+		<input id="bouton" type="submit" value="Réinitialiser mot de passe">
 	</form>
 </div>
 </div>

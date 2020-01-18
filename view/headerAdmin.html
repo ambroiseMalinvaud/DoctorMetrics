@@ -1,27 +1,22 @@
 <header>
-	<a href="index.php?action=accueil"><img id="logo" src="public/Images/DoctorMetrics.png" alt="Logo Doctor Metrics" title="Doctor Metrics"></a>
+	<a href="accueil"><img id="logo" src="public/Images/DoctorMetrics.png" alt="Logo Doctor Metrics" title="Doctor Metrics"></a>
 	<nav>
 		<ul>
-            <li><a id="quitter"href="index.php?action=accueil" onclick="pop()">QUITTER MODE ADMINISTRATEUR</a></li>
+            <li><a id="quitter"href="accueil" onclick="pop()">QUITTER MODE ADMINISTRATEUR</a></li>
             <script type="text/javascript">
                 function pop() {
                     var quitter = document.getElementById("quitter");
                     var result = confirm("Voulez-vous vraiment quitter cette page?");
                     if (result == true) {
-                        alert("Merci de votre visite");
-                        quitter.href= "index.php?action=accueil";
-                    }
-                    else {
-                        alert("Merci de rester avec nous");
-                        quitter.href=""
+                        quitter.href= "accueil";
                     }
                 }
             </script>
-			<li><a href="index.php?action=accueilAdmin">PROFIL ADMINISTRATEUR</a></li>
-			<li><a href="index.php?action=statistiquesAdmin">STATISTIQUES</a></li>
-			<li><a href="index.php?action=gestionUtilisateurs">GESTION UTILISATEURS</a></li>
-			<li><a href="index.php?action=gestionTests">GESTION TESTS</a></li>
-            <li><a href="index.php?action=formulaireAdmin">FORMULAIRE DE CONTACT</a></li>
+			<li><a href="accueilAdmin">PROFIL ADMINISTRATEUR</a></li>
+			<li><a href="statistiquesAdmin">STATISTIQUES</a></li>
+			<li><a href="gestionUtilisateurs">GESTION UTILISATEURS</a></li>
+			<li><a href="gestionTests">GESTION TESTS</a></li>
+            <li><a href="formulaireAdmin">FORMULAIRE DE CONTACT</a></li>
 		</ul>
 	</nav>
 </header>

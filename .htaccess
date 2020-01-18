@@ -1,0 +1,5 @@
+Options +FollowSymlinks
+RewriteEngine ON
+
+RewriteRule ^salut$ index.php?action=accueil
+RewriteRule ^([a-zA-Z]+)$ index.php?action=$1
