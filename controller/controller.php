@@ -369,7 +369,7 @@ function resetPassword() {
 
 					$pass = randomPassword(8);
 
-					$message = "Bonjour ".$data['firstName']." ".$data['lastName'].", \n\nVotre noouveau mot de passe est : ".$pass."\n\nPar sécurité, une fois que vous avez mémorisé votre mot de passe, merci de supprimer ce mail.\n\nBonne journée !\nL'équipe Doctor Metrics" ;
+					$message = "Bonjour ".$data['firstName']." ".$data['lastName'].", \n\nVotre nouveau mot de passe est : ".$pass."\n\nPar sécurité, une fois que vous avez mémorisé votre mot de passe, merci de supprimer ce mail.\n\nBonne journée !\nL'équipe Doctor Metrics" ;
 
 					mail($data['mail'],'Doctor Metrics : nouveau mot de passe',$message);
 
