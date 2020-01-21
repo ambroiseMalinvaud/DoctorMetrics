@@ -1,4 +1,38 @@
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td,tp,tn, i, txtValue,txtValuen,txtValuep;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+	tn = tr[i].getElementsByTagName("td")[1];
+	tp = tr[i].getElementsByTagName("td")[0];
+    if (td || tn || tp) {
+      txtValue = td.textContent || td.innerText;
+	  txtValuen = tn.textContent || tn.innerText;
+	  txtValuep = tp.textContent || tp.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      }
+	  else if(txtValuen.toUpperCase().indexOf(filter) > -1 ){
+		tr[i].style.display = "";
+	  }
+	  else if(txtValuep.toUpperCase().indexOf(filter) > -1 ){
+		tr[i].style.display = "";
+	  }
+	   else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+  }
+</script>
 <html>
+
 	
 <head>
 	<meta charset="utf-8"> 
@@ -13,23 +47,31 @@
 <div id="mainBlock">
 
 <?php require('view/headerAdmin.html'); ?>
+<h3>Recherche</h3>
+		
+		
+		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
 
 <div id="corps">
 	<div id="userList">
 		<h3>Liste des utilisateurs : </h3>
-		<table>
-  		 <tr>
+		<table id = 'myTable'>
+  		 <tr id='sisi'>
       		 <th>Nom</th>
       		 <th>Prénom</th>
       		 <th>RPPS</th>
    		</tr>
    			<?php 
-   			while($users = $req->fetch()) {
-   				echo '<tr>';
-  				echo '<td>' . $users['lastName'] . '</td>';
-  				echo '<td>' . $users['firstName'] . '</td>';
-  				echo '<td>' . $users['RPPS'] . '</td>';
-  				echo '</tr>';
+   			while($users = $req->fetch()) {?>
+				<?php echo '<tr>';?>
+				<div id='myUL'>
+				   <?php
+  					echo '<td>' . $users['lastName'] . '</td>';
+  					echo '<td>' . $users['firstName'] . '</td>';
+				  	echo '<td>' . $users['RPPS'] . '</td>';?>
+				  
+				</div>
+  				<?php echo '</tr>';?><?php
   			}
   			?>
 		</table>
