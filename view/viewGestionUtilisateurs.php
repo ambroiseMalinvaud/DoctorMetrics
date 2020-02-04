@@ -102,7 +102,6 @@ function myFunction() {
 				
 					<p>
 						<label for="tel"></label><input type="tel" name="tel" id="tel" placeholder="06XXXXXXXX" minlength="10" maxlength="10" required/>
-                        <span class="tooltip">Veuillez rentrer un numéro de téléphone de 10 caratères</span>
 					</p>
                     
                               
@@ -116,14 +115,14 @@ function myFunction() {
 			<p><strong>Prénom</strong></p>
 				
 					<p>
-						<label for="prenom"></label><input type="text" name="prenom" id="prenom" placeholder="Prénom" minlength="2" maxlength="2" required/>
+						<label for="prenom"></label><input type="text" name="prenom" id="prenom" placeholder="Prénom" minlength="2" required/>
                         <span class="tooltip">Veuillez saisir un prénom de minimum 2 caratères</span>
 					</p>
 				
 			<p><strong>Nom</strong></p>
 				
 					<p>
-						<label for="nom"></label><input type="text" name="nom" id="nom" placeholder="Nom" minlength="2" maxlength="2" required/>
+						<label for="nom"></label><input type="text" name="nom" id="nom" placeholder="Nom" minlength="2" required/>
                         <span class="tooltip">Veuillez saisir un nom de minimum 2 caratères</span>
 					</p>
 				
@@ -193,27 +192,6 @@ function myFunction() {
             }
 
         };
-        
-        
-        check['tel'] = function(id) {
-
-            var name = document.getElementById(id),
-                tooltipStyle = getTooltip(name).style;
-
-            if (name.value.length == 10) {
-                name.className = 'correct';
-                tooltipStyle.display = 'none';
-                document.getElementById('tel').style.color='#00FF00';
-                return true;
-            } else {
-                document.getElementById('tel').style.color='#FF0000';
-                name.className = 'incorrect';
-                tooltipStyle.display = 'inline-block';
-                return false;
-            }
-
-        };
-        
         
         
         check['prenom'] = function(id) {
